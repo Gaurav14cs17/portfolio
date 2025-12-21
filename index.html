@@ -1000,6 +1000,74 @@
             50% { opacity: 0.8; }
         }
         
+        /* Moiré Pattern Removal Animation */
+        .anim-moire {
+            background: linear-gradient(135deg, #050510 0%, #0a0a1a 50%, #0f0f25 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .anim-moire .pattern {
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                rgba(0, 217, 255, 0.1) 2px,
+                rgba(0, 217, 255, 0.1) 4px
+            );
+            animation: moireRotate 8s linear infinite;
+        }
+        
+        .anim-moire .pattern:nth-child(2) {
+            background: repeating-linear-gradient(
+                90deg,
+                transparent,
+                transparent 2px,
+                rgba(255, 107, 53, 0.1) 2px,
+                rgba(255, 107, 53, 0.1) 4px
+            );
+            animation: moireRotate 10s linear infinite reverse;
+        }
+        
+        .anim-moire .clean-zone {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(57, 255, 20, 0.3) 0%, transparent 70%);
+            animation: cleanPulse 2s ease-in-out infinite;
+            z-index: 2;
+        }
+        
+        .anim-moire .label {
+            position: absolute;
+            bottom: 30px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--neon-green);
+            background: rgba(57, 255, 20, 0.1);
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            border: 1px solid var(--neon-green);
+            z-index: 3;
+        }
+        
+        @keyframes moireRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @keyframes cleanPulse {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.3); opacity: 1; }
+        }
+        
         /* LEAF-YOLO - Drone/Object Detection Animation */
         .anim-yolo {
             background: linear-gradient(135deg, #0a192f 0%, #112240 50%, #1d3557 100%);
@@ -1343,12 +1411,14 @@
 
         .contact-link:hover {
             border-color: var(--primary);
-            background: rgba(139, 92, 246, 0.05);
+            background: rgba(0, 217, 255, 0.05);
+            box-shadow: 0 0 20px rgba(0, 217, 255, 0.1);
         }
 
         .contact-link i {
             font-size: 1.25rem;
             color: var(--primary);
+            text-shadow: 0 0 10px var(--primary);
         }
 
         .contact-form {
@@ -1577,19 +1647,19 @@
             </div>
             
             <div class="hero-social">
-                <a href="https://github.com/Gaurav14cs17" target="_blank" class="social-link">
+                <a href="https://github.com/Gaurav14cs17" target="_blank" class="social-link" title="GitHub">
                     <i class="fab fa-github"></i>
                 </a>
-                <a href="https://linkedin.com/in/gaurav14cs17" target="_blank" class="social-link">
+                <a href="https://linkedin.com/in/gaurav14cs17" target="_blank" class="social-link" title="LinkedIn">
                     <i class="fab fa-linkedin-in"></i>
                 </a>
-                <a href="https://www.kaggle.com/gouravkumar717" target="_blank" class="social-link">
-                    <i class="fab fa-kaggle"></i>
+                <a href="https://stopstalk.com/user/profile/gou_rav" target="_blank" class="social-link" title="StopStalk">
+                    <i class="fas fa-chart-line"></i>
                 </a>
-                <a href="https://leetcode.com/u/gou_rav/" target="_blank" class="social-link">
+                <a href="https://leetcode.com/u/gou_rav/" target="_blank" class="social-link" title="LeetCode">
                     <i class="fas fa-code"></i>
                 </a>
-                <a href="mailto:gourav14cs17@gmail.com" class="social-link">
+                <a href="mailto:gourav14cs17@gmail.com" class="social-link" title="Email">
                     <i class="fas fa-envelope"></i>
                 </a>
             </div>
@@ -1666,13 +1736,17 @@
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <span class="timeline-date">Nov 2021 - Present</span>
-                        <h3>Samsung R&D Institute</h3>
-                        <h4>Lead Deep Learning & CV Engineer</h4>
+                        <h3>Samsung Research Institute, Bangalore</h3>
+                        <h4>Computer Vision Lead Engineer</h4>
                         <ul>
-                            <li>Developed SOTA low-light enhancement algorithms improving image quality by 30%</li>
-                            <li>Created lightweight DNN models for Bayer demosaicing and multi-camera shot selection</li>
-                            <li>Optimized face detection models achieving 95% accuracy on mobile devices</li>
-                            <li>Authored research papers submitted for Samsung Best Paper Award</li>
+                            <li>Researched SOTA low-light image/video enhancement with deep learning–based denoising</li>
+                            <li>Designed & commercialized Moiré Pattern Removal (Galaxy S23) and Deblurring Models (Galaxy S24)</li>
+                            <li>Developed Bayer-domain video denoising and NV21 enhancement pipelines</li>
+                            <li>Working on Diffusion Models for Image Generation & Restoration</li>
+                            <li>Achieved real-time mobile inference via Quantization-Aware Training & pruning</li>
+                            <li>Built long-range face detection models deployed in Samsung devices</li>
+                            <li>Led hardware-aware optimizations on Samsung SoCs, NPUs, and DSPs</li>
+                            <li>Multiple SBPA (Samsung Best Paper Award) recognitions</li>
                         </ul>
                     </div>
                 </div>
@@ -1684,10 +1758,11 @@
                         <h3>Synergy Labs</h3>
                         <h4>Deep Learning Engineer</h4>
                         <ul>
-                            <li>Built ANPR system with 94% accuracy deployed with Panipat Police</li>
-                            <li>Developed facial recognition for automated attendance</li>
-                            <li>Implemented traffic monitoring solutions detecting violations</li>
-                            <li>Created GAN models for synthetic data generation</li>
+                            <li>Built video analytics pipelines for traffic incident detection & people counting (C++/OpenCV)</li>
+                            <li>Developed ALPR system using anchor-based detector + multi-head OCR on Jetson TX2</li>
+                            <li>Designed GAN-based synthetic number plate generator improving OCR robustness</li>
+                            <li>Created document OCR pipeline with CNN-RNN hybrid and INT8 quantization</li>
+                            <li>Built vehicle axle classification system for toll management</li>
                         </ul>
                     </div>
                 </div>
@@ -1711,17 +1786,16 @@
                         <div class="project-overlay"></div>
                     </div>
                     <div class="project-info">
-                        <h3>Mobile Camera Low-Light Enhancement</h3>
-                        <p>Deep learning models improving image quality in low-light conditions for Samsung mobile cameras with custom optimizations for mobile deployment.</p>
+                        <h3>Low-Light Image/Video Enhancement</h3>
+                        <p>SOTA deep learning–based denoising with Bayer-domain video denoising and NV21 enhancement pipelines, improving dynamic range in extreme lighting.</p>
                         <div class="project-tech">
                             <span>PyTorch</span>
-                            <span>TensorFlow</span>
-                            <span>OpenCV</span>
+                            <span>Quantization</span>
                             <span>ONNX</span>
+                            <span>NPU</span>
                         </div>
                         <div class="project-links">
-                            <a href="#"><i class="fas fa-external-link-alt"></i></a>
-                            <a href="#"><i class="fab fa-github"></i></a>
+                            <a href="#" title="Samsung Proprietary"><i class="fas fa-lock"></i></a>
                         </div>
                     </div>
                 </div>
@@ -1732,38 +1806,38 @@
                         <div class="project-overlay"></div>
                     </div>
                     <div class="project-info">
-                        <h3>Automatic Number Plate Recognition</h3>
-                        <p>End-to-end system for detecting and recognizing vehicle license plates with 94% accuracy. Deployed with Panipat Police.</p>
+                        <h3>ALPR System (Jetson TX2)</h3>
+                        <p>License plate recognition using anchor-based detector + multi-head OCR classifier with GAN-based synthetic data generation for improved robustness.</p>
                         <div class="project-tech">
-                            <span>TensorFlow</span>
-                            <span>OpenCV</span>
-                            <span>Flask</span>
+                            <span>Jetson TX2</span>
                             <span>YOLO</span>
+                            <span>OCR</span>
+                            <span>GAN</span>
                         </div>
                         <div class="project-links">
-                            <a href="#"><i class="fas fa-external-link-alt"></i></a>
                             <a href="#"><i class="fab fa-github"></i></a>
                         </div>
                     </div>
                 </div>
                 
                 <div class="project-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="project-image">
-                        <img src="images/facial-recognition.jpg" alt="Facial Recognition">
+                    <div class="project-image anim-moire">
+                        <div class="pattern"></div>
+                        <div class="pattern"></div>
+                        <div class="clean-zone"></div>
+                        <span class="label">✓ Pattern Removed</span>
                         <div class="project-overlay"></div>
                     </div>
                     <div class="project-info">
-                        <h3>Enterprise Facial Recognition</h3>
-                        <p>Deep learning solution for automated employee attendance with real-time face detection and recognition capabilities.</p>
+                        <h3>Moiré Pattern Removal (Galaxy S23)</h3>
+                        <p>Commercialized Single Image Moiré Pattern Removal model deployed on Galaxy S23 series with real-time inference via Quantization-Aware Training.</p>
                         <div class="project-tech">
-                            <span>FaceNet</span>
-                            <span>Dlib</span>
-                            <span>Django</span>
-                            <span>PostgreSQL</span>
+                            <span>PyTorch</span>
+                            <span>QAT</span>
+                            <span>Samsung SoC</span>
                         </div>
                         <div class="project-links">
-                            <a href="#"><i class="fas fa-external-link-alt"></i></a>
-                            <a href="#"><i class="fab fa-github"></i></a>
+                            <a href="#" title="Samsung Proprietary"><i class="fas fa-lock"></i></a>
                         </div>
                     </div>
                 </div>
@@ -1787,22 +1861,22 @@
                         <div class="project-overlay"></div>
                     </div>
                     <div class="project-info">
-                        <h3>Attention Mechanisms Research</h3>
-                        <p>Three in-depth surveys covering efficient transformer architectures, multi-head attention, and linear attention mechanisms.</p>
+                        <h3>Reparameterization Image Denoising</h3>
+                        <p>Multi-branch residual attention network trained on SIDD dataset with L1 + SSIM loss for high-quality image denoising.</p>
                         <div class="project-tech">
-                            <span>Transformers</span>
+                            <span>RepVGG</span>
                             <span>PyTorch</span>
-                            <span>Research</span>
+                            <span>SIDD</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/Gaurav14cs17/Attention_mechanisms" target="_blank"><i class="fab fa-github"></i></a>
+                            <a href="https://github.com/Gaurav14cs17" target="_blank"><i class="fab fa-github"></i></a>
                         </div>
                     </div>
                 </div>
                 
                 <div class="project-card" data-aos="fade-up" data-aos-delay="400">
                     <div class="project-image anim-yolo">
-                        <span class="drone">🛸</span>
+                        <span class="drone">🎯</span>
                         <div class="grid">
                             <div class="cell"></div>
                             <div class="cell"></div>
@@ -1820,15 +1894,15 @@
                         <div class="project-overlay"></div>
                     </div>
                     <div class="project-info">
-                        <h3>LEAF-YOLO</h3>
-                        <p>Game-changing object detection model for aerial imagery and edge devices. Optimized for tiny object detection in drone footage.</p>
+                        <h3>YOLOX / YOLOE Object Detection</h3>
+                        <p>Anchor-free, CSP-based detectors optimized for real-time inference with advanced training techniques and model compression.</p>
                         <div class="project-tech">
-                            <span>YOLO</span>
-                            <span>Edge AI</span>
+                            <span>YOLOX</span>
+                            <span>CSPNet</span>
                             <span>PyTorch</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/Gaurav14cs17/LEAF-YOLO" target="_blank"><i class="fab fa-github"></i></a>
+                            <a href="https://github.com/Gaurav14cs17" target="_blank"><i class="fab fa-github"></i></a>
                         </div>
                     </div>
                 </div>
@@ -1836,13 +1910,13 @@
                 <div class="project-card" data-aos="fade-up" data-aos-delay="500">
                     <div class="project-image anim-dsa">
                         <!-- Falling code -->
-                        <span class="code-line">def sort(arr):</span>
-                        <span class="code-line">O(n log n)</span>
-                        <span class="code-line">while(l &lt; r)</span>
-                        <span class="code-line">dp[i][j]</span>
-                        <span class="code-line">BFS()</span>
-                        <span class="code-line">return max</span>
-                        <!-- Sorting visualization -->
+                        <span class="code-line">CNN-RNN</span>
+                        <span class="code-line">INT8 Quant</span>
+                        <span class="code-line">OCR Pipeline</span>
+                        <span class="code-line">Edge AI</span>
+                        <span class="code-line">GStreamer</span>
+                        <span class="code-line">Inference</span>
+                        <!-- OCR visualization -->
                         <div class="algo-visual">
                             <div class="bar"></div>
                             <div class="bar"></div>
@@ -1855,15 +1929,15 @@
                         <div class="project-overlay"></div>
                     </div>
                     <div class="project-info">
-                        <h3>DSA & Competitive Programming</h3>
-                        <p>Systematic preparation of Data Structures and Algorithms with 1500+ problems solved across multiple platforms.</p>
+                        <h3>Document OCR Pipeline</h3>
+                        <p>CNN-RNN hybrid document OCR with INT8 quantization for real-time edge inference on embedded devices.</p>
                         <div class="project-tech">
-                            <span>Algorithms</span>
-                            <span>C++</span>
-                            <span>Python</span>
+                            <span>CNN-RNN</span>
+                            <span>INT8</span>
+                            <span>GStreamer</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/Gaurav14cs17/DSA" target="_blank"><i class="fab fa-github"></i></a>
+                            <a href="https://github.com/Gaurav14cs17" target="_blank"><i class="fab fa-github"></i></a>
                         </div>
                     </div>
                 </div>
@@ -1889,10 +1963,10 @@
                     <div class="skill-list">
                         <span class="skill-tag">PyTorch</span>
                         <span class="skill-tag">TensorFlow</span>
-                        <span class="skill-tag">Keras</span>
-                        <span class="skill-tag">JAX</span>
                         <span class="skill-tag">ONNX</span>
-                        <span class="skill-tag">TensorRT</span>
+                        <span class="skill-tag">Quantization</span>
+                        <span class="skill-tag">Diffusion Models</span>
+                        <span class="skill-tag">GenAI</span>
                     </div>
                 </div>
                 
@@ -1903,10 +1977,11 @@
                     <h3>Computer Vision</h3>
                     <div class="skill-list">
                         <span class="skill-tag">OpenCV</span>
-                        <span class="skill-tag">YOLO</span>
-                        <span class="skill-tag">Detectron2</span>
-                        <span class="skill-tag">MMDetection</span>
-                        <span class="skill-tag">Albumentations</span>
+                        <span class="skill-tag">Image Enhancement</span>
+                        <span class="skill-tag">Denoising</span>
+                        <span class="skill-tag">Deblurring</span>
+                        <span class="skill-tag">Detection</span>
+                        <span class="skill-tag">OCR</span>
                     </div>
                 </div>
                 
@@ -1918,9 +1993,8 @@
                     <div class="skill-list">
                         <span class="skill-tag">Python</span>
                         <span class="skill-tag">C++</span>
-                        <span class="skill-tag">CUDA</span>
-                        <span class="skill-tag">Triton</span>
-                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">Data Structures</span>
+                        <span class="skill-tag">Algorithms</span>
                     </div>
                 </div>
                 
@@ -1928,14 +2002,14 @@
                     <div class="skill-icon">
                         <i class="fas fa-cogs"></i>
                     </div>
-                    <h3>MLOps & Tools</h3>
+                    <h3>Tools & Platforms</h3>
                     <div class="skill-list">
-                        <span class="skill-tag">Docker</span>
-                        <span class="skill-tag">MLflow</span>
-                        <span class="skill-tag">W&B</span>
+                        <span class="skill-tag">GStreamer</span>
+                        <span class="skill-tag">Jetson</span>
+                        <span class="skill-tag">NPU/DSP</span>
+                        <span class="skill-tag">Samsung SoC</span>
                         <span class="skill-tag">Git</span>
                         <span class="skill-tag">Linux</span>
-                        <span class="skill-tag">AWS</span>
                     </div>
                 </div>
             </div>
@@ -1993,6 +2067,26 @@
                 </div>
             </div>
             
+            <!-- Awards & Recognition -->
+            <div class="section-header" data-aos="fade-up" style="margin-top: 4rem;">
+                <h3 style="font-size: 1.5rem; margin-bottom: 2rem;">Awards & Recognition</h3>
+            </div>
+            
+            <div class="skills-grid">
+                <div class="skill-category" data-aos="fade-up">
+                    <h3><i class="fas fa-trophy" style="color: var(--warning); margin-right: 0.5rem;"></i>Samsung Best Paper Award (SBPA)</h3>
+                    <p style="color: var(--gray); margin-top: 0.5rem;">Multiple recognitions for camera AI innovations</p>
+                </div>
+                <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
+                    <h3><i class="fas fa-scroll" style="color: var(--secondary); margin-right: 0.5rem;"></i>Patent: WO2024219855A1</h3>
+                    <p style="color: var(--gray); margin-top: 0.5rem;">Adaptive multi-focus image fusion system with class-specific denoising</p>
+                </div>
+                <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
+                    <h3><i class="fas fa-chalkboard-teacher" style="color: var(--neon-green); margin-right: 0.5rem;"></i>Instructor: Learn with Senior</h3>
+                    <p style="color: var(--gray); margin-top: 0.5rem;">Conducted DSA and competitive programming sessions</p>
+                </div>
+            </div>
+            
             <!-- Certifications -->
             <div class="section-header" data-aos="fade-up" style="margin-top: 4rem;">
                 <h3 style="font-size: 1.5rem; margin-bottom: 2rem;">Certifications</h3>
@@ -2001,15 +2095,7 @@
             <div class="skills-grid">
                 <div class="skill-category" data-aos="fade-up">
                     <h3><i class="fas fa-certificate" style="color: var(--primary); margin-right: 0.5rem;"></i>Deep Learning Specialization</h3>
-                    <p style="color: var(--gray); margin-top: 0.5rem;">Coursera - Neural Networks, CNN, RNN, Hyperparameter Tuning</p>
-                </div>
-                <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
-                    <h3><i class="fas fa-certificate" style="color: var(--primary); margin-right: 0.5rem;"></i>Computer Vision</h3>
-                    <p style="color: var(--gray); margin-top: 0.5rem;">Image Classification, Object Detection, Segmentation</p>
-                </div>
-                <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
-                    <h3><i class="fas fa-certificate" style="color: var(--primary); margin-right: 0.5rem;"></i>CUDA Programming</h3>
-                    <p style="color: var(--gray); margin-top: 0.5rem;">GPU Optimization, Parallel Computing, Kernel Development</p>
+                    <p style="color: var(--gray); margin-top: 0.5rem;">deeplearning.ai (Coursera) - Neural Networks, CNN, RNN</p>
                 </div>
             </div>
         </div>
@@ -2027,11 +2113,11 @@
                 <div class="education-icon">
                     <i class="fas fa-graduation-cap"></i>
                 </div>
-                <h3>Mahatma Jyotiba Phule Rohilkhand University</h3>
+                <h3>Mahatma Jyotiba Phule Rohilkhand University, Bareilly</h3>
                 <p class="date">2014 - 2018</p>
-                <h4>Bachelor of Engineering in Computer Science</h4>
+                <h4>B.Tech, Computer Science Engineering</h4>
                 <p style="color: var(--gray);">
-                    Graduated with distinction. Coursework focused on algorithms, machine learning, and computer vision fundamentals.
+                    Coursework focused on algorithms, data structures, machine learning, and computer vision fundamentals.
                 </p>
             </div>
         </div>
@@ -2063,6 +2149,10 @@
                         <a href="https://github.com/Gaurav14cs17" class="contact-link" target="_blank">
                             <i class="fab fa-github"></i>
                             <span>github.com/Gaurav14cs17</span>
+                        </a>
+                        <a href="https://stopstalk.com/user/profile/gou_rav" class="contact-link" target="_blank">
+                            <i class="fas fa-chart-line"></i>
+                            <span>stopstalk.com/gou_rav</span>
                         </a>
                     </div>
                 </div>
