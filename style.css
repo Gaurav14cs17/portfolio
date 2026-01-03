@@ -1,20 +1,93 @@
+/*
+ * ============================================
+ * PORTFOLIO STYLESHEET
+ * Author: Gaurav Goswami
+ * ============================================
+ *
+ * TABLE OF CONTENTS
+ * -----------------
+ * 1. CSS Variables & Root
+ * 2. Base & Reset
+ * 3. Utilities
+ * 4. Layout Components
+ *    4.1 Navigation
+ *    4.2 Buttons
+ *    4.3 Cards
+ *    4.4 Section Styles
+ * 5. Hero Section
+ * 6. Page Sections
+ *    6.1 About
+ *    6.2 Experience (Timeline)
+ *    6.3 Projects
+ *    6.4 Repositories
+ *    6.5 Skills
+ *    6.6 Education
+ *    6.7 Contact
+ * 7. Footer
+ * 8. Animations
+ * 9. Responsive Design
+ *    9.1 Tablet (max-width: 992px)
+ *    9.2 Mobile (max-width: 768px)
+ */
+
+
+/* ============================================
+   1. CSS VARIABLES & ROOT
+   ============================================ */
 :root {
+    /* Primary Colors */
     --primary: #00D9FF;
     --primary-dark: #00B4D8;
     --secondary: #FF6B35;
     --accent: #7B2CBF;
     --neon-green: #39FF14;
+    
+    /* Background Colors */
     --dark: #0a0a0f;
     --darker: #050507;
     --card-bg: #12121a;
+    
+    /* Text Colors */
     --light: #FFFFFF;
     --gray: #9CA3AF;
+    
+    /* Status Colors */
     --success: #00F5A0;
     --warning: #FFD93D;
+    
+    /* Spacing (optional for future use) */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 4rem;
+    --spacing-xl: 6rem;
+    
+    /* Border Radius */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 20px;
+    --radius-full: 50px;
+    
+    /* Transitions */
+    --transition-fast: 0.3s ease;
+    --transition-normal: 0.4s ease;
+    --transition-slow: 0.5s ease;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+
+/* ============================================
+   2. BASE & RESET
+   ============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
 
 body {
     font-family: 'Inter', sans-serif;
@@ -29,27 +102,69 @@ body {
     background-attachment: fixed;
 }
 
+/* Grid overlay effect */
 body::before {
     content: '';
     position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: linear-gradient(90deg, rgba(0, 217, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(rgba(0, 217, 255, 0.03) 1px, transparent 1px);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        linear-gradient(90deg, rgba(0, 217, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(rgba(0, 217, 255, 0.03) 1px, transparent 1px);
     background-size: 60px 60px;
     pointer-events: none;
     z-index: -1;
 }
 
-/* Navigation */
+
+/* ============================================
+   3. UTILITIES
+   ============================================ */
+
+/* Accessibility - visually hidden but screen reader accessible */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Gradient text utility */
+.gradient {
+    background: linear-gradient(135deg, var(--primary), var(--neon-green), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 200% 200%;
+    animation: gradientShift 5s ease-in-out infinite;
+}
+
+
+/* ============================================
+   4. LAYOUT COMPONENTS
+   ============================================ */
+
+/* --------------------------------------------
+   4.1 Navigation
+   -------------------------------------------- */
 nav {
     position: fixed;
-    top: 0; left: 0; right: 0;
+    top: 0;
+    left: 0;
+    right: 0;
     z-index: 1000;
     padding: 1rem 2rem;
     background: rgba(10, 10, 15, 0.7);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid rgba(0, 217, 255, 0.1);
-    transition: all 0.3s ease;
+    transition: var(--transition-fast);
 }
 
 nav.scrolled {
@@ -86,7 +201,7 @@ nav.scrolled {
     color: var(--gray);
     text-decoration: none;
     font-weight: 500;
-    transition: all 0.3s ease;
+    transition: var(--transition-fast);
     position: relative;
     padding: 0.5rem 0;
 }
@@ -99,15 +214,18 @@ nav.scrolled {
 .nav-links a::after {
     content: '';
     position: absolute;
-    bottom: 0; left: 0;
+    bottom: 0;
+    left: 0;
     width: 0;
     height: 2px;
     background: linear-gradient(90deg, var(--primary), var(--secondary));
-    transition: width 0.3s ease;
+    transition: width var(--transition-fast);
     box-shadow: 0 0 10px var(--primary);
 }
 
-.nav-links a:hover::after { width: 100%; }
+.nav-links a:hover::after {
+    width: 100%;
+}
 
 .mobile-toggle {
     display: none;
@@ -117,7 +235,139 @@ nav.scrolled {
     z-index: 1001;
 }
 
-/* Hero Section */
+/* --------------------------------------------
+   4.2 Buttons
+   -------------------------------------------- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.75rem;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition-fast);
+    cursor: pointer;
+    border: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: white;
+    box-shadow: 0 4px 20px rgba(0, 217, 255, 0.3);
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left var(--transition-slow);
+}
+
+.btn-primary:hover::before {
+    left: 100%;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 40px rgba(0, 217, 255, 0.5);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+}
+
+.btn-outline:hover {
+    background: var(--primary);
+    color: var(--darker);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0, 217, 255, 0.4);
+}
+
+/* --------------------------------------------
+   4.3 Cards
+   -------------------------------------------- */
+/* Base card styles - shared across project, skill, education cards */
+.card-base {
+    background: var(--card-bg);
+    border: 1px solid rgba(0, 217, 255, 0.1);
+    border-radius: var(--radius-xl);
+    transition: var(--transition-normal);
+}
+
+/* --------------------------------------------
+   4.4 Section Styles
+   -------------------------------------------- */
+section {
+    padding: 6rem 2rem;
+    position: relative;
+}
+
+.section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.section-tag {
+    display: inline-block;
+    padding: 0.5rem 1.25rem;
+    background: rgba(0, 217, 255, 0.1);
+    border: 1px solid rgba(0, 217, 255, 0.3);
+    border-radius: var(--radius-full);
+    font-size: 0.875rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+    font-weight: 500;
+    text-shadow: 0 0 20px rgba(0, 217, 255, 0.5);
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, var(--light), var(--primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.section-desc {
+    color: var(--gray);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Section top border decorator */
+.section-border-primary::before,
+.section-border-secondary::before,
+.section-border-accent::before,
+.section-border-neon::before,
+.section-border-warning::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+}
+
+
+/* ============================================
+   5. HERO SECTION
+   ============================================ */
 .hero {
     min-height: 100vh;
     display: flex;
@@ -130,7 +380,10 @@ nav.scrolled {
 
 .hero-bg {
     position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background: 
         radial-gradient(ellipse at 20% 20%, rgba(0, 217, 255, 0.15) 0%, transparent 50%),
         radial-gradient(ellipse at 80% 80%, rgba(255, 107, 53, 0.12) 0%, transparent 50%),
@@ -138,14 +391,13 @@ nav.scrolled {
     animation: bgPulse 8s ease-in-out infinite;
 }
 
-@keyframes bgPulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.7; }
-}
-
+/* Floating particles */
 .hero-particles {
     position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     overflow: hidden;
 }
 
@@ -170,13 +422,7 @@ nav.scrolled {
     box-shadow: 0 0 10px var(--neon-green);
 }
 
-@keyframes float {
-    0%, 100% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-    10% { opacity: 0.5; }
-    90% { opacity: 0.5; }
-    100% { transform: translateY(-100vh) rotate(720deg); opacity: 0; }
-}
-
+/* Hero content */
 .hero-content {
     position: relative;
     z-index: 1;
@@ -191,7 +437,7 @@ nav.scrolled {
     padding: 0.5rem 1.25rem;
     background: rgba(0, 217, 255, 0.1);
     border: 1px solid rgba(0, 217, 255, 0.4);
-    border-radius: 50px;
+    border-radius: var(--radius-full);
     font-size: 0.875rem;
     color: var(--primary);
     margin-bottom: 1.5rem;
@@ -199,12 +445,9 @@ nav.scrolled {
     animation: badgeGlow 3s ease-in-out infinite;
 }
 
-@keyframes badgeGlow {
-    0%, 100% { box-shadow: 0 0 20px rgba(0, 217, 255, 0.2); }
-    50% { box-shadow: 0 0 30px rgba(0, 217, 255, 0.4); }
+.hero-badge i {
+    color: var(--neon-green);
 }
-
-.hero-badge i { color: var(--neon-green); }
 
 .hero-title {
     font-size: clamp(2.5rem, 8vw, 5rem);
@@ -213,25 +456,10 @@ nav.scrolled {
     margin-bottom: 1rem;
 }
 
-.hero-title .gradient {
-    background: linear-gradient(135deg, var(--primary), var(--neon-green), var(--secondary));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    background-size: 200% 200%;
-    animation: gradientShift 5s ease-in-out infinite;
-}
-
-@keyframes gradientShift {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-}
-
 .hero-subtitle {
     font-size: 1.25rem;
     color: var(--gray);
     margin-bottom: 1.5rem;
-    transition: opacity 0.3s ease;
 }
 
 .hero-company {
@@ -241,12 +469,16 @@ nav.scrolled {
     padding: 0.75rem 1.5rem;
     background: linear-gradient(135deg, rgba(20, 40, 160, 0.3), rgba(20, 40, 160, 0.1));
     border: 1px solid rgba(20, 40, 160, 0.5);
-    border-radius: 12px;
+    border-radius: var(--radius-md);
     margin-bottom: 2rem;
 }
 
-.hero-company span { font-weight: 600; color: #fff; }
+.hero-company span {
+    font-weight: 600;
+    color: #fff;
+}
 
+/* Hero stats */
 .hero-stats {
     display: flex;
     justify-content: center;
@@ -255,7 +487,9 @@ nav.scrolled {
     flex-wrap: wrap;
 }
 
-.stat { text-align: center; }
+.stat {
+    text-align: center;
+}
 
 .stat-value {
     font-size: 2.5rem;
@@ -274,6 +508,7 @@ nav.scrolled {
     letter-spacing: 1px;
 }
 
+/* Hero buttons */
 .hero-buttons {
     display: flex;
     justify-content: center;
@@ -282,56 +517,7 @@ nav.scrolled {
     margin-bottom: 3rem;
 }
 
-.btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.875rem 1.75rem;
-    border-radius: 12px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    border: none;
-    position: relative;
-    overflow: hidden;
-}
-
-.btn-primary {
-    background: linear-gradient(135deg, var(--primary), var(--accent));
-    color: white;
-    box-shadow: 0 4px 20px rgba(0, 217, 255, 0.3);
-}
-
-.btn-primary::before {
-    content: '';
-    position: absolute;
-    top: 0; left: -100%;
-    width: 100%; height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-    transition: left 0.5s;
-}
-
-.btn-primary:hover::before { left: 100%; }
-
-.btn-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 40px rgba(0, 217, 255, 0.5);
-}
-
-.btn-outline {
-    background: transparent;
-    border: 2px solid var(--primary);
-    color: var(--primary);
-}
-
-.btn-outline:hover {
-    background: var(--primary);
-    color: var(--darker);
-    transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(0, 217, 255, 0.4);
-}
-
+/* Hero social links */
 .hero-social {
     display: flex;
     justify-content: center;
@@ -344,12 +530,12 @@ nav.scrolled {
     justify-content: center;
     width: 50px;
     height: 50px;
-    border-radius: 12px;
+    border-radius: var(--radius-md);
     background: rgba(0, 217, 255, 0.05);
     border: 1px solid rgba(0, 217, 255, 0.2);
     color: var(--gray);
     font-size: 1.25rem;
-    transition: all 0.3s ease;
+    transition: var(--transition-fast);
 }
 
 .social-link:hover {
@@ -360,6 +546,7 @@ nav.scrolled {
     box-shadow: 0 10px 30px rgba(0, 217, 255, 0.4);
 }
 
+/* Scroll indicator */
 .scroll-indicator {
     position: absolute;
     bottom: 2rem;
@@ -368,57 +555,14 @@ nav.scrolled {
     animation: bounce 2s infinite;
 }
 
-@keyframes bounce {
-    0%, 100% { transform: translateX(-50%) translateY(0); }
-    50% { transform: translateX(-50%) translateY(10px); }
-}
 
-/* Section Styles */
-section {
-    padding: 6rem 2rem;
-    position: relative;
-}
+/* ============================================
+   6. PAGE SECTIONS
+   ============================================ */
 
-.section-container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.section-header {
-    text-align: center;
-    margin-bottom: 4rem;
-}
-
-.section-tag {
-    display: inline-block;
-    padding: 0.5rem 1.25rem;
-    background: rgba(0, 217, 255, 0.1);
-    border: 1px solid rgba(0, 217, 255, 0.3);
-    border-radius: 50px;
-    font-size: 0.875rem;
-    color: var(--primary);
-    margin-bottom: 1rem;
-    font-weight: 500;
-    text-shadow: 0 0 20px rgba(0, 217, 255, 0.5);
-}
-
-.section-title {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    background: linear-gradient(135deg, var(--light), var(--primary));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.section-desc {
-    color: var(--gray);
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-/* About Section */
+/* --------------------------------------------
+   6.1 About Section
+   -------------------------------------------- */
 #about {
     background: linear-gradient(180deg, var(--darker) 0%, var(--dark) 100%);
     position: relative;
@@ -427,7 +571,9 @@ section {
 #about::before {
     content: '';
     position: absolute;
-    top: 0; left: 0; right: 0;
+    top: 0;
+    left: 0;
+    right: 0;
     height: 1px;
     background: linear-gradient(90deg, transparent, var(--primary), transparent);
 }
@@ -463,8 +609,8 @@ section {
     padding: 1rem;
     background: rgba(0, 217, 255, 0.03);
     border: 1px solid rgba(0, 217, 255, 0.15);
-    border-radius: 12px;
-    transition: all 0.3s ease;
+    border-radius: var(--radius-md);
+    transition: var(--transition-fast);
 }
 
 .highlight:hover {
@@ -479,18 +625,24 @@ section {
     text-shadow: 0 0 15px var(--primary);
 }
 
-.highlight span { font-weight: 500; }
+.highlight span {
+    font-weight: 500;
+}
 
+/* About image */
 .about-image-wrapper {
     position: relative;
-    border-radius: 20px;
+    border-radius: var(--radius-xl);
     overflow: hidden;
 }
 
 .about-image-wrapper::before {
     content: '';
     position: absolute;
-    top: -2px; left: -2px; right: -2px; bottom: -2px;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
     background: linear-gradient(135deg, var(--primary), var(--neon-green), var(--secondary));
     border-radius: 22px;
     z-index: -1;
@@ -498,18 +650,14 @@ section {
     background-size: 200% 200%;
 }
 
-@keyframes borderRotate {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
 .about-image img {
     width: 100%;
-    border-radius: 20px;
+    border-radius: var(--radius-xl);
 }
 
-/* Experience Section */
+/* --------------------------------------------
+   6.2 Experience Section (Timeline)
+   -------------------------------------------- */
 #experience {
     background: var(--dark);
     position: relative;
@@ -518,7 +666,9 @@ section {
 #experience::before {
     content: '';
     position: absolute;
-    top: 0; left: 0; right: 0;
+    top: 0;
+    left: 0;
+    right: 0;
     height: 1px;
     background: linear-gradient(90deg, transparent, var(--secondary), transparent);
 }
@@ -567,18 +717,13 @@ section {
     animation: dotPulse 2s ease-in-out infinite;
 }
 
-@keyframes dotPulse {
-    0%, 100% { box-shadow: 0 0 10px var(--primary); }
-    50% { box-shadow: 0 0 25px var(--primary); }
-}
-
 .timeline-content {
     background: var(--card-bg);
     border: 1px solid rgba(0, 217, 255, 0.1);
-    border-radius: 16px;
+    border-radius: var(--radius-lg);
     padding: 2rem;
     max-width: 400px;
-    transition: all 0.3s ease;
+    transition: var(--transition-fast);
     position: relative;
 }
 
@@ -593,7 +738,7 @@ section {
     padding: 0.25rem 0.75rem;
     background: rgba(0, 217, 255, 0.1);
     border: 1px solid rgba(0, 217, 255, 0.3);
-    border-radius: 50px;
+    border-radius: var(--radius-full);
     font-size: 0.875rem;
     color: var(--primary);
     margin-bottom: 1rem;
@@ -610,7 +755,9 @@ section {
     margin-bottom: 1rem;
 }
 
-.timeline-content ul { list-style: none; }
+.timeline-content ul {
+    list-style: none;
+}
 
 .timeline-content li {
     position: relative;
@@ -627,7 +774,9 @@ section {
     color: var(--primary);
 }
 
-/* Projects Section */
+/* --------------------------------------------
+   6.3 Projects Section
+   -------------------------------------------- */
 #projects {
     background: linear-gradient(180deg, var(--dark) 0%, var(--darker) 100%);
     position: relative;
@@ -636,7 +785,9 @@ section {
 #projects::before {
     content: '';
     position: absolute;
-    top: 0; left: 0; right: 0;
+    top: 0;
+    left: 0;
+    right: 0;
     height: 1px;
     background: linear-gradient(90deg, transparent, var(--neon-green), transparent);
 }
@@ -650,9 +801,9 @@ section {
 .project-card {
     background: var(--card-bg);
     border: 1px solid rgba(0, 217, 255, 0.1);
-    border-radius: 20px;
+    border-radius: var(--radius-xl);
     overflow: hidden;
-    transition: all 0.4s ease;
+    transition: var(--transition-normal);
     position: relative;
 }
 
@@ -673,10 +824,12 @@ section {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease;
+    transition: transform var(--transition-slow);
 }
 
-.project-card:hover .project-image img { transform: scale(1.1); }
+.project-card:hover .project-image img {
+    transform: scale(1.1);
+}
 
 .project-overlay {
     position: absolute;
@@ -684,7 +837,9 @@ section {
     background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
 }
 
-.project-info { padding: 1.5rem; }
+.project-info {
+    padding: 1.5rem;
+}
 
 .project-info h3 {
     font-size: 1.25rem;
@@ -708,10 +863,10 @@ section {
     padding: 0.25rem 0.75rem;
     background: rgba(0, 217, 255, 0.1);
     border: 1px solid rgba(0, 217, 255, 0.2);
-    border-radius: 50px;
+    border-radius: var(--radius-full);
     font-size: 0.75rem;
     color: var(--primary);
-    transition: all 0.3s ease;
+    transition: var(--transition-fast);
 }
 
 .project-tech span:hover {
@@ -720,13 +875,16 @@ section {
     box-shadow: 0 0 10px rgba(0, 217, 255, 0.3);
 }
 
-.project-links { display: flex; gap: 1rem; }
+.project-links {
+    display: flex;
+    gap: 1rem;
+}
 
 .project-links a {
     color: var(--gray);
-    transition: all 0.3s ease;
+    transition: var(--transition-fast);
     padding: 0.5rem;
-    border-radius: 8px;
+    border-radius: var(--radius-sm);
 }
 
 .project-links a:hover {
@@ -735,7 +893,9 @@ section {
     text-shadow: 0 0 15px var(--primary);
 }
 
-/* Repositories Section */
+/* --------------------------------------------
+   6.4 Repositories Section
+   -------------------------------------------- */
 #repositories {
     background: var(--darker);
     position: relative;
@@ -744,7 +904,9 @@ section {
 #repositories::before {
     content: '';
     position: absolute;
-    top: 0; left: 0; right: 0;
+    top: 0;
+    left: 0;
+    right: 0;
     height: 1px;
     background: linear-gradient(90deg, transparent, var(--warning), transparent);
 }
@@ -762,10 +924,10 @@ section {
     padding: 1.5rem;
     background: var(--card-bg);
     border: 1px solid rgba(0, 217, 255, 0.1);
-    border-radius: 16px;
+    border-radius: var(--radius-lg);
     text-decoration: none;
     color: inherit;
-    transition: all 0.4s ease;
+    transition: var(--transition-normal);
     position: relative;
     overflow: hidden;
 }
@@ -779,7 +941,7 @@ section {
     height: 100%;
     background: linear-gradient(180deg, var(--primary), var(--neon-green));
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity var(--transition-fast);
 }
 
 .repo-card:hover::before {
@@ -804,7 +966,7 @@ section {
     border-radius: 14px;
     font-size: 1.4rem;
     color: var(--primary);
-    transition: all 0.3s ease;
+    transition: var(--transition-fast);
 }
 
 .repo-card:hover .repo-icon {
@@ -826,7 +988,7 @@ section {
     margin-bottom: 0.5rem;
     font-family: 'JetBrains Mono', monospace;
     color: var(--light);
-    transition: color 0.3s ease;
+    transition: color var(--transition-fast);
 }
 
 .repo-card:hover .repo-content h3 {
@@ -861,7 +1023,7 @@ section {
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    transition: all 0.3s ease;
+    transition: var(--transition-fast);
 }
 
 .repo-card:hover .repo-tags span {
@@ -881,7 +1043,7 @@ section {
     border-radius: 10px;
     color: var(--gray);
     font-size: 0.9rem;
-    transition: all 0.3s ease;
+    transition: var(--transition-fast);
     opacity: 0;
     transform: translateX(-10px);
 }
@@ -894,7 +1056,9 @@ section {
     color: var(--darker);
 }
 
-/* Skills Section */
+/* --------------------------------------------
+   6.5 Skills Section
+   -------------------------------------------- */
 #skills {
     background: var(--dark);
     position: relative;
@@ -903,7 +1067,9 @@ section {
 #skills::before {
     content: '';
     position: absolute;
-    top: 0; left: 0; right: 0;
+    top: 0;
+    left: 0;
+    right: 0;
     height: 1px;
     background: linear-gradient(90deg, transparent, var(--accent), transparent);
 }
@@ -917,9 +1083,9 @@ section {
 .skill-category {
     background: var(--card-bg);
     border: 1px solid rgba(0, 217, 255, 0.1);
-    border-radius: 20px;
+    border-radius: var(--radius-xl);
     padding: 2rem;
-    transition: all 0.4s ease;
+    transition: var(--transition-normal);
     position: relative;
     overflow: hidden;
 }
@@ -937,7 +1103,7 @@ section {
     align-items: center;
     justify-content: center;
     background: linear-gradient(135deg, var(--primary), var(--neon-green));
-    border-radius: 16px;
+    border-radius: var(--radius-lg);
     font-size: 1.5rem;
     margin-bottom: 1.5rem;
     box-shadow: 0 8px 25px rgba(0, 217, 255, 0.3);
@@ -958,10 +1124,10 @@ section {
     padding: 0.5rem 1rem;
     background: rgba(0, 217, 255, 0.05);
     border: 1px solid rgba(0, 217, 255, 0.15);
-    border-radius: 8px;
+    border-radius: var(--radius-sm);
     font-size: 0.875rem;
     color: var(--gray);
-    transition: all 0.3s ease;
+    transition: var(--transition-fast);
 }
 
 .skill-tag:hover {
@@ -971,7 +1137,9 @@ section {
     box-shadow: 0 0 15px rgba(0, 217, 255, 0.2);
 }
 
-/* Education */
+/* --------------------------------------------
+   6.6 Education Section
+   -------------------------------------------- */
 #education {
     background: var(--dark);
     position: relative;
@@ -980,7 +1148,9 @@ section {
 #education::before {
     content: '';
     position: absolute;
-    top: 0; left: 0; right: 0;
+    top: 0;
+    left: 0;
+    right: 0;
     height: 1px;
     background: linear-gradient(90deg, transparent, var(--secondary), transparent);
 }
@@ -988,7 +1158,7 @@ section {
 .education-card {
     background: var(--card-bg);
     border: 1px solid rgba(0, 217, 255, 0.1);
-    border-radius: 20px;
+    border-radius: var(--radius-xl);
     padding: 2.5rem;
     max-width: 700px;
     margin: 0 auto;
@@ -1000,7 +1170,9 @@ section {
 .education-card::before {
     content: '';
     position: absolute;
-    top: 0; left: 0; right: 0;
+    top: 0;
+    left: 0;
+    right: 0;
     height: 3px;
     background: linear-gradient(90deg, var(--primary), var(--neon-green), var(--secondary));
 }
@@ -1012,7 +1184,7 @@ section {
     align-items: center;
     justify-content: center;
     background: linear-gradient(135deg, var(--primary), var(--neon-green));
-    border-radius: 20px;
+    border-radius: var(--radius-xl);
     font-size: 2rem;
     margin: 0 auto 1.5rem;
     box-shadow: 0 10px 30px rgba(0, 217, 255, 0.3);
@@ -1034,7 +1206,9 @@ section {
     margin-bottom: 1rem;
 }
 
-/* Contact Section */
+/* --------------------------------------------
+   6.7 Contact Section
+   -------------------------------------------- */
 #contact {
     background: linear-gradient(180deg, var(--dark) 0%, var(--darker) 100%);
     position: relative;
@@ -1043,7 +1217,9 @@ section {
 #contact::before {
     content: '';
     position: absolute;
-    top: 0; left: 0; right: 0;
+    top: 0;
+    left: 0;
+    right: 0;
     height: 1px;
     background: linear-gradient(90deg, transparent, var(--primary), transparent);
 }
@@ -1078,10 +1254,10 @@ section {
     padding: 1rem 1.5rem;
     background: rgba(255, 255, 255, 0.02);
     border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 12px;
+    border-radius: var(--radius-md);
     color: var(--light);
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: var(--transition-fast);
 }
 
 .contact-link:hover {
@@ -1096,14 +1272,17 @@ section {
     text-shadow: 0 0 10px var(--primary);
 }
 
+/* Contact form */
 .contact-form {
     background: rgba(255, 255, 255, 0.02);
     border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 20px;
+    border-radius: var(--radius-xl);
     padding: 2.5rem;
 }
 
-.form-group { margin-bottom: 1.5rem; }
+.form-group {
+    margin-bottom: 1.5rem;
+}
 
 .form-group input,
 .form-group textarea {
@@ -1111,11 +1290,11 @@ section {
     padding: 1rem 1.25rem;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
+    border-radius: var(--radius-md);
     color: var(--light);
     font-family: inherit;
     font-size: 1rem;
-    transition: all 0.3s ease;
+    transition: var(--transition-fast);
 }
 
 .form-group input:focus,
@@ -1130,7 +1309,10 @@ section {
     resize: vertical;
 }
 
-/* Footer */
+
+/* ============================================
+   7. FOOTER
+   ============================================ */
 footer {
     background: var(--darker);
     padding: 3rem 2rem;
@@ -1158,19 +1340,76 @@ footer::before {
     margin-bottom: 2rem;
 }
 
-.footer-text { color: var(--gray); }
+.footer-text {
+    color: var(--gray);
+}
 
 .footer-text a {
     color: var(--primary);
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: var(--transition-fast);
 }
 
 .footer-text a:hover {
     text-shadow: 0 0 15px var(--primary);
 }
 
-/* Responsive */
+
+/* ============================================
+   8. ANIMATIONS
+   ============================================ */
+@keyframes bgPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+    10% { opacity: 0.5; }
+    90% { opacity: 0.5; }
+    100% {
+        transform: translateY(-100vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+@keyframes badgeGlow {
+    0%, 100% { box-shadow: 0 0 20px rgba(0, 217, 255, 0.2); }
+    50% { box-shadow: 0 0 30px rgba(0, 217, 255, 0.4); }
+}
+
+@keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(10px); }
+}
+
+@keyframes borderRotate {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes dotPulse {
+    0%, 100% { box-shadow: 0 0 10px var(--primary); }
+    50% { box-shadow: 0 0 25px var(--primary); }
+}
+
+
+/* ============================================
+   9. RESPONSIVE DESIGN
+   ============================================ */
+
+/* --------------------------------------------
+   9.1 Tablet (max-width: 992px)
+   -------------------------------------------- */
 @media (max-width: 992px) {
     .about-grid,
     .contact-wrapper {
@@ -1178,7 +1417,9 @@ footer::before {
         gap: 2rem;
     }
 
-    .timeline::before { left: 20px; }
+    .timeline::before {
+        left: 20px;
+    }
 
     .timeline-item,
     .timeline-item:nth-child(even) {
@@ -1187,13 +1428,20 @@ footer::before {
         justify-content: flex-start;
     }
 
-    .timeline-dot { left: 20px; }
+    .timeline-dot {
+        left: 20px;
+    }
 }
 
+/* --------------------------------------------
+   9.2 Mobile (max-width: 768px)
+   -------------------------------------------- */
 @media (max-width: 768px) {
+    /* Mobile navigation */
     .nav-links {
         position: fixed;
-        top: 0; right: -100%;
+        top: 0;
+        right: -100%;
         width: 70%;
         height: 100vh;
         background: var(--dark);
@@ -1201,42 +1449,63 @@ footer::before {
         justify-content: center;
         align-items: center;
         gap: 2rem;
-        transition: right 0.3s ease;
+        transition: right var(--transition-fast);
         border-left: 1px solid rgba(139, 92, 246, 0.2);
     }
 
-    .nav-links.active { right: 0; }
-    .mobile-toggle { display: block; }
+    .nav-links.active {
+        right: 0;
+    }
 
-    .hero-stats { gap: 1.5rem; }
-    .stat-value { font-size: 2rem; }
-    .about-highlights { grid-template-columns: 1fr; }
-    .projects-grid { grid-template-columns: 1fr; }
-    .repos-grid { grid-template-columns: 1fr; }
-    
+    .mobile-toggle {
+        display: block;
+    }
+
+    /* Hero adjustments */
+    .hero-stats {
+        gap: 1.5rem;
+    }
+
+    .stat-value {
+        font-size: 2rem;
+    }
+
+    /* Grid adjustments */
+    .about-highlights {
+        grid-template-columns: 1fr;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .repos-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Repository cards mobile layout */
     .repo-card {
         flex-direction: column;
         text-align: center;
         padding: 1.5rem;
     }
-    
+
     .repo-card::before {
         width: 100%;
         height: 4px;
         top: 0;
         left: 0;
     }
-    
+
     .repo-card:hover {
         transform: translateY(-5px);
     }
-    
+
     .repo-arrow {
         display: none;
     }
-    
+
     .repo-tags {
         justify-content: center;
     }
 }
-
