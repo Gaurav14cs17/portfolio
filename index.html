@@ -11,6 +11,59 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <style>
+        .demos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+            gap: 2rem;
+        }
+        .demo-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+        .demo-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: rgba(99, 102, 241, 0.3);
+        }
+        .demo-video {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            background: #000;
+        }
+        .demo-video iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .demo-info {
+            padding: 1.25rem 1.5rem 1.5rem;
+        }
+        .demo-info h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #f1f5f9;
+        }
+        .demo-info p {
+            font-size: 0.9rem;
+            color: #94a3b8;
+            line-height: 1.5;
+            margin-bottom: 0.75rem;
+        }
+        @media (max-width: 480px) {
+            .demos-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
     <nav id="navbar">
@@ -20,6 +73,7 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="#demos">Demos</a></li>
                 <li><a href="#repositories">Repositories</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#achievements">Achievements</a></li>
@@ -209,6 +263,101 @@
                         <div class="project-links"><a href="https://github.com/Gaurav14cs17" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a></div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="demos" style="background: linear-gradient(180deg, var(--darker) 0%, var(--dark) 100%);">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">Demos</span>
+                <h2 class="section-title">Project Demo Videos</h2>
+                <p class="section-desc">Watch my Computer Vision & Deep Learning projects in action</p>
+            </div>
+            
+            <div class="demos-grid">
+                <div class="demo-card">
+                    <div class="demo-video">
+                        <iframe src="https://www.youtube.com/embed/3MAxLGNXKKg" title="Low Light Video Enhancement" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <div class="demo-info">
+                        <h3>Low-Light Video Enhancement</h3>
+                        <p>Deep learning-based low-light video enhancement for improved visibility and noise reduction.</p>
+                        <div class="project-tech"><span>Deep Learning</span><span>Video Processing</span><span>Enhancement</span></div>
+                    </div>
+                </div>
+
+                <div class="demo-card">
+                    <div class="demo-video">
+                        <iframe src="https://www.youtube.com/embed/Yb0ONjgMrMw" title="Vehicle Detection and Tracking" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <div class="demo-info">
+                        <h3>Vehicle Detection & Tracking</h3>
+                        <p>Real-time vehicle detection and multi-object tracking for traffic surveillance systems.</p>
+                        <div class="project-tech"><span>Object Detection</span><span>Tracking</span><span>Surveillance</span></div>
+                    </div>
+                </div>
+
+                <div class="demo-card">
+                    <div class="demo-video">
+                        <iframe src="https://www.youtube.com/embed/OcDmuZQMvV0" title="Vehicle Counting and Classification" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <div class="demo-info">
+                        <h3>Vehicle Counting & Classification</h3>
+                        <p>Automated vehicle counting and type classification for intelligent traffic management.</p>
+                        <div class="project-tech"><span>Classification</span><span>Counting</span><span>Traffic</span></div>
+                    </div>
+                </div>
+
+                <div class="demo-card">
+                    <div class="demo-video">
+                        <iframe src="https://www.youtube.com/embed/btrCZSccNd4" title="Automatic Vehicle Counting and Classification" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <div class="demo-info">
+                        <h3>Automatic Vehicle Counting & Classification</h3>
+                        <p>End-to-end automated pipeline for vehicle counting and classification with axle detection.</p>
+                        <div class="project-tech"><span>Automation</span><span>Axle Detection</span><span>Analytics</span></div>
+                    </div>
+                </div>
+
+                <div class="demo-card">
+                    <div class="demo-video">
+                        <iframe src="https://www.youtube.com/embed/WzxE-0bugSI" title="ANPR - Automatic Number Plate Recognition" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <div class="demo-info">
+                        <h3>ANPR - Number Plate Recognition</h3>
+                        <p>Automatic Number Plate Recognition system with detection and OCR on edge devices.</p>
+                        <div class="project-tech"><span>ANPR</span><span>OCR</span><span>Edge AI</span></div>
+                    </div>
+                </div>
+
+                <div class="demo-card">
+                    <div class="demo-video">
+                        <iframe src="https://www.youtube.com/embed/DOeOW57l6IE" title="Lane Shape Prediction with Transformers" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <div class="demo-info">
+                        <h3>Lane Shape Prediction with Transformers</h3>
+                        <p>Transformer-based lane detection and shape prediction for autonomous driving applications.</p>
+                        <div class="project-tech"><span>Transformers</span><span>Lane Detection</span><span>Autonomous</span></div>
+                    </div>
+                </div>
+
+                <div class="demo-card">
+                    <div class="demo-video">
+                        <iframe src="https://www.youtube.com/embed/Vx245mGmiQ4" title="Object Detection using YOLOv6" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <div class="demo-info">
+                        <h3>Object Detection using YOLOv6</h3>
+                        <p>Real-time object detection powered by YOLOv6 with optimized inference performance.</p>
+                        <div class="project-tech"><span>YOLOv6</span><span>Object Detection</span><span>Real-time</span></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="https://www.youtube.com/@aigaurav5024" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                    <i class="fab fa-youtube"></i> View All Videos
+                </a>
             </div>
         </div>
     </section>
