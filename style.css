@@ -48,6 +48,8 @@ body {
     color: var(--light);
     line-height: 1.7;
     overflow-x: hidden;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
 .visually-hidden {
@@ -206,6 +208,7 @@ section {
 .section-container {
     max-width: 1100px;
     margin: 0 auto;
+    width: 100%;
 }
 
 .section-header {
@@ -267,6 +270,8 @@ section {
     z-index: 1;
     text-align: center;
     max-width: 700px;
+    width: 100%;
+    padding: 0 0.5rem;
 }
 
 .hero-subtitle {
@@ -470,6 +475,7 @@ section {
     gap: 1.25rem;
     max-width: 800px;
     margin: 0 auto;
+    width: 100%;
 }
 
 .exp-card {
@@ -515,6 +521,7 @@ section {
     font-size: 1.15rem;
     color: var(--white);
     margin-bottom: 0.2rem;
+    word-break: break-word;
 }
 
 .exp-company-info h4 {
@@ -571,7 +578,7 @@ section {
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(330px, 100%), 1fr));
     gap: 1.5rem;
 }
 
@@ -652,6 +659,7 @@ section {
     font-size: 1.1rem;
     margin-bottom: 0.6rem;
     color: var(--white);
+    word-break: break-word;
 }
 
 .project-info p {
@@ -705,7 +713,7 @@ section {
 
 .repos-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(360px, 100%), 1fr));
     gap: 1rem;
 }
 
@@ -722,6 +730,7 @@ section {
     transition: var(--transition);
     position: relative;
     overflow: hidden;
+    min-width: 0;
 }
 
 .repo-card::before {
@@ -778,6 +787,8 @@ section {
     margin-bottom: 0.35rem;
     font-family: 'JetBrains Mono', monospace;
     color: var(--light);
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 .repo-card:hover .repo-content h3 {
@@ -849,7 +860,7 @@ section {
 
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
     gap: 1.5rem;
 }
 
@@ -972,6 +983,7 @@ section {
     padding: 1.75rem 2rem;
     max-width: 700px;
     margin: 0 auto;
+    width: 100%;
 }
 
 .edu-header {
@@ -996,6 +1008,7 @@ section {
     font-size: 1.1rem;
     margin-bottom: 0.2rem;
     color: var(--white);
+    word-break: break-word;
 }
 
 .edu-info h4 {
@@ -1054,6 +1067,14 @@ section {
     text-decoration: none;
     transition: var(--transition);
     font-size: 0.9rem;
+    min-width: 0;
+}
+
+.contact-link span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    min-width: 0;
 }
 
 .contact-link:hover {
