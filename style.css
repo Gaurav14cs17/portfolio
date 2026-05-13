@@ -40,6 +40,7 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
@@ -458,7 +459,14 @@ section {
 
 .about-image img {
     width: 100%;
+    max-width: 100%;
+    height: auto;
     border-radius: var(--radius-xl);
+}
+
+.about-image {
+    overflow: hidden;
+    min-width: 0;
 }
 
 
@@ -1200,7 +1208,7 @@ footer {
     .nav-links {
         position: fixed;
         top: 0;
-        right: -100%;
+        right: 0;
         width: 70%;
         height: 100vh;
         background: var(--dark);
@@ -1208,13 +1216,14 @@ footer {
         justify-content: center;
         align-items: center;
         gap: 2rem;
-        transition: right var(--transition);
+        transition: transform var(--transition);
         border-left: 1px solid var(--card-border);
         z-index: 1000;
+        transform: translateX(100%);
     }
 
     .nav-links.active {
-        right: 0;
+        transform: translateX(0);
     }
 
     .mobile-toggle {
