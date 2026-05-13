@@ -14,28 +14,29 @@
     <style>
         .videos-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
             margin-top: 2rem;
         }
         .video-card {
-            background: var(--card, #1a1a2e);
-            border-radius: 16px;
+            background: var(--card-bg);
+            border-radius: var(--radius-lg);
             overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.06);
+            border: 1px solid var(--card-border);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             text-decoration: none;
             display: block;
         }
         .video-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+            border-color: rgba(99, 102, 241, 0.2);
         }
         .video-card .video-thumb {
             position: relative;
             width: 100%;
             padding-bottom: 56.25%;
-            background: #000;
+            background: var(--dark);
             overflow: hidden;
         }
         .video-card .video-thumb img {
@@ -49,18 +50,18 @@
             transition: transform 0.4s ease, filter 0.4s ease;
         }
         .video-card:hover .video-thumb img {
-            transform: translate(-50%, -50%) scale(1.05);
-            filter: brightness(0.7);
+            transform: translate(-50%, -50%) scale(1.03);
+            filter: brightness(0.75);
         }
         .video-card .play-btn {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 68px;
-            height: 48px;
-            background: rgba(255, 0, 0, 0.85);
-            border-radius: 12px;
+            width: 56px;
+            height: 40px;
+            background: rgba(99, 102, 241, 0.9);
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -68,8 +69,8 @@
             transition: background 0.3s ease, transform 0.3s ease;
         }
         .video-card:hover .play-btn {
-            background: #ff0000;
-            transform: translate(-50%, -50%) scale(1.1);
+            background: var(--primary);
+            transform: translate(-50%, -50%) scale(1.08);
         }
         .video-card .play-btn::after {
             content: '';
@@ -77,39 +78,41 @@
             width: 0;
             height: 0;
             border-style: solid;
-            border-width: 10px 0 10px 18px;
+            border-width: 8px 0 8px 14px;
             border-color: transparent transparent transparent #fff;
-            margin-left: 3px;
+            margin-left: 2px;
         }
         .video-card .video-info {
-            padding: 1rem 1.25rem;
+            padding: 0.875rem 1.25rem;
             display: flex;
             align-items: center;
             gap: 0.75rem;
         }
         .video-card .video-info .yt-icon {
-            color: #ff0000;
-            font-size: 1.4rem;
+            color: #ef4444;
+            font-size: 1.2rem;
             flex-shrink: 0;
         }
         .video-card .video-info span {
-            font-size: 0.9rem;
+            font-size: 0.82rem;
             font-weight: 500;
-            color: var(--white, #e0e0e0);
+            color: var(--gray-light);
+            line-height: 1.3;
         }
         .video-card .video-badge {
             position: absolute;
-            top: 12px;
-            left: 12px;
-            background: rgba(0, 0, 0, 0.75);
-            color: #fff;
-            font-size: 0.7rem;
+            top: 10px;
+            left: 10px;
+            background: rgba(2, 6, 23, 0.8);
+            color: var(--primary-light);
+            font-size: 0.65rem;
             font-weight: 600;
-            padding: 4px 10px;
-            border-radius: 6px;
+            padding: 3px 8px;
+            border-radius: 5px;
             z-index: 3;
             letter-spacing: 0.5px;
             text-transform: uppercase;
+            border: 1px solid rgba(99, 102, 241, 0.2);
         }
         @media (max-width: 768px) {
             .videos-grid {
@@ -126,10 +129,8 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
-                <li><a href="#demos">Demos</a></li>
-                <li><a href="#repositories">Repositories</a></li>
+                <li><a href="#repositories">Open Source</a></li>
                 <li><a href="#skills">Skills</a></li>
-                <li><a href="#achievements">Achievements</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <div class="mobile-toggle"><i class="fas fa-bars"></i></div>
@@ -138,49 +139,27 @@
 
     <section class="hero">
         <div class="hero-bg"></div>
-        <div class="hero-particles">
-            <div class="particle" style="left: 10%; animation-delay: 0s;"></div>
-            <div class="particle" style="left: 20%; animation-delay: 2s;"></div>
-            <div class="particle" style="left: 30%; animation-delay: 4s;"></div>
-            <div class="particle" style="left: 50%; animation-delay: 8s;"></div>
-            <div class="particle" style="left: 70%; animation-delay: 3s;"></div>
-            <div class="particle" style="left: 90%; animation-delay: 7s;"></div>
-        </div>
-        
         <div class="hero-content">
-            <div class="hero-badge"><i class="fas fa-circle"></i> Available for opportunities</div>
-            <h1 class="hero-title">Hi, I'm <span class="gradient">Gaurav Goswami</span></h1>
-            <p class="hero-subtitle">Machine Learning Engineer</p>
+            <p class="hero-subtitle"><i class="fab fa-redhat" style="color: #EE0000; margin-right: 0.25rem;"></i> Machine Learning Engineer at <strong style="color: #EE0000;">Red Hat</strong></p>
+            <h1 class="hero-title">Gaurav Goswami</h1>
+            <p class="hero-desc">7+ years building production AI systems — from LLM inference optimization and distributed training to diffusion models shipped on Samsung Galaxy devices.</p>
             
-            <div class="hero-company">
-                <i class="fab fa-redhat" style="color: #EE0000;"></i>
-                <span>Red Hat, India (Hybrid)</span>
+            <div class="hero-buttons">
+                <a href="mailto:gourav14cs17@gmail.com" class="btn btn-primary"><i class="fas fa-envelope"></i> Get in Touch</a>
+                <a href="https://github.com/Gaurav14cs17" target="_blank" rel="noopener noreferrer" class="btn btn-outline"><i class="fab fa-github"></i> GitHub</a>
+                <a href="https://linkedin.com/in/gaurav14cs17" target="_blank" rel="noopener noreferrer" class="btn btn-outline"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
             </div>
             
             <div class="hero-stats">
-                <div class="stat"><div class="stat-value">7+</div><div class="stat-label">Years Experience</div></div>
-                <div class="stat"><div class="stat-value">157</div><div class="stat-label">Repositories</div></div>
-                <div class="stat"><div class="stat-value">1.2K+</div><div class="stat-label">GitHub Stars</div></div>
-                <div class="stat"><div class="stat-value">1800+</div><div class="stat-label">Problems Solved</div></div>
-            </div>
-            
-            <div class="hero-buttons">
-                <a href="mailto:gourav14cs17@gmail.com" class="btn btn-primary"><i class="fas fa-envelope"></i> Email Me</a>
-                <a href="#contact" class="btn btn-outline"><i class="fas fa-paper-plane"></i> Get in Touch</a>
-            </div>
-            
-            <div class="hero-social">
-                <a href="https://github.com/Gaurav14cs17" target="_blank" rel="noopener noreferrer" class="social-link" title="GitHub"><i class="fab fa-github"></i></a>
-                <a href="https://linkedin.com/in/gaurav14cs17" target="_blank" rel="noopener noreferrer" class="social-link" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://stopstalk.com/user/profile/gou_rav" target="_blank" rel="noopener noreferrer" class="social-link" title="StopStalk"><i class="fas fa-chart-line"></i></a>
-                <a href="https://leetcode.com/u/gou_rav/" target="_blank" rel="noopener noreferrer" class="social-link" title="LeetCode"><i class="fas fa-code"></i></a>
-                <a href="https://www.hackerrank.com/gou_rav" target="_blank" rel="noopener noreferrer" class="social-link" title="HackerRank"><i class="fab fa-hackerrank"></i></a>
-                <a href="https://www.hackerearth.com/@gou_rav/" target="_blank" rel="noopener noreferrer" class="social-link" title="HackerEarth"><i class="fas fa-laptop-code"></i></a>
-                <a href="mailto:gourav14cs17@gmail.com" class="social-link" title="Email"><i class="fas fa-envelope"></i></a>
+                <div class="stat"><div class="stat-value">7+</div><div class="stat-label">Years</div></div>
+                <div class="stat-divider"></div>
+                <div class="stat"><div class="stat-value">176</div><div class="stat-label">Repos</div></div>
+                <div class="stat-divider"></div>
+                <div class="stat"><div class="stat-value">1.2K+</div><div class="stat-label">Stars</div></div>
+                <div class="stat-divider"></div>
+                <div class="stat"><div class="stat-value">1800+</div><div class="stat-label">DSA Solved</div></div>
             </div>
         </div>
-        
-        <div class="scroll-indicator"><a href="#about" style="color: var(--gray);"><i class="fas fa-chevron-down fa-2x"></i></a></div>
     </section>
 
     <section id="about">
@@ -198,9 +177,9 @@
                     <p>Passionate about both research and implementation, I've authored <strong>patents and conference papers</strong> while maintaining an active profile in competitive programming with <strong>1800+ DSA problems solved</strong>.</p>
                     
                     <div class="about-highlights">
-                        <div class="highlight"><i class="fas fa-server"></i><span>AI Infrastructure</span></div>
-                        <div class="highlight"><i class="fas fa-robot"></i><span>LLM Optimization</span></div>
-                        <div class="highlight"><i class="fab fa-python"></i><span>PyTorch Ecosystem</span></div>
+                        <div class="highlight"><i class="fab fa-redhat" style="color: #EE0000;"></i><span>Red Hat AI Infra</span></div>
+                        <div class="highlight"><i class="fas fa-robot"></i><span>LLM & vLLM</span></div>
+                        <div class="highlight"><svg viewBox="0 0 24 24" width="20" height="20" fill="#EE4C2C"><path d="M12.005 0C7.456 0 3.83 3.627 3.83 8.175c0 2.607 1.218 4.93 3.112 6.43v.002c.224.178.39.418.48.693l1.744 5.337a.946.946 0 0 0 .897.646h3.874a.946.946 0 0 0 .897-.646l1.744-5.337a1.29 1.29 0 0 1 .48-.693c1.894-1.5 3.112-3.823 3.112-6.43C20.18 3.627 16.554 0 12.005 0zm0 4.358a3.817 3.817 0 1 1 0 7.634 3.817 3.817 0 0 1 0-7.634z"/></svg><span>PyTorch Ecosystem</span></div>
                         <div class="highlight"><i class="fab fa-osi"></i><span>Open Source</span></div>
                     </div>
                 </div>
@@ -222,54 +201,57 @@
                 <p class="section-desc">7+ years of building production-grade AI systems</p>
             </div>
             
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <span class="timeline-date">Sep 2025 - Present</span>
-                        <h3>Red Hat</h3>
-                        <h4>Machine Learning Engineer</h4>
-                        <ul>
-                            <li>Working on open-source AI infrastructure and large-scale model systems</li>
-                            <li>Contributing to PyTorch ecosystem and open-source AI tooling</li>
-                            <li>Developing and improving scalable training workflows using Training Hub for large-scale model training pipelines</li>
-                            <li>Working with vLLM to optimize high-throughput inference for large language models</li>
-                            <li>Contributing to open-source AI infrastructure used for training and serving next-generation foundation models</li>
-                        </ul>
+            <div class="exp-grid">
+                <div class="exp-card">
+                    <div class="exp-header">
+                        <div class="exp-logo"><i class="fab fa-redhat" style="color: #EE0000; font-size: 1.75rem;"></i></div>
+                        <div class="exp-company-info">
+                            <h3>Red Hat</h3>
+                            <h4>Machine Learning Engineer</h4>
+                        </div>
+                        <span class="exp-date">Sep 2025 - Present</span>
                     </div>
+                    <ul class="exp-list">
+                        <li>Open-source AI infrastructure and large-scale model systems</li>
+                        <li>PyTorch ecosystem contributions and scalable training workflows (Training Hub)</li>
+                        <li>High-throughput LLM inference optimization with vLLM</li>
+                        <li>Infrastructure for training and serving foundation models</li>
+                    </ul>
                 </div>
 
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <span class="timeline-date">Nov 2021 - Aug 2025</span>
-                        <h3>Samsung Research Institute, Bangalore</h3>
-                        <h4>Computer Vision Lead Engineer</h4>
-                        <ul>
-                            <li>Researched SOTA low-light image/video enhancement with deep learning–based denoising</li>
-                            <li>Designed & commercialized Moiré Pattern Removal (Galaxy S23) and Deblurring Models (Galaxy S24)</li>
-                            <li>Developed Bayer-domain video denoising and NV21 enhancement pipelines</li>
-                            <li>Working on Diffusion Models for Image Generation & Restoration</li>
-                            <li>Achieved real-time mobile inference via Quantization-Aware Training & pruning</li>
-                            <li>Multiple SBPA (Samsung Best Paper Award) recognitions</li>
-                        </ul>
+                <div class="exp-card">
+                    <div class="exp-header">
+                        <div class="exp-logo"><svg viewBox="0 0 24 24" width="28" height="28" fill="#1428a0"><path d="M5.9 4.8h12.2c.3 0 .5.1.7.2.2.2.3.4.3.7v3.5H19v-3c0-.8-.3-1.5-.9-2.1-.6-.6-1.3-.9-2.1-.9H8c-.8 0-1.5.3-2.1.9-.6.6-.9 1.3-.9 2.1v3h-.1V5.7c0-.3.1-.5.3-.7.2-.1.4-.2.7-.2zm12.2 14.4H5.9c-.3 0-.5-.1-.7-.2-.2-.2-.3-.4-.3-.7v-3.5H5v3c0 .8.3 1.5.9 2.1.6.6 1.3.9 2.1.9h8c.8 0 1.5-.3 2.1-.9.6-.6.9-1.3.9-2.1v-3h.1v3.5c0 .3-.1.5-.3.7-.2.1-.4.2-.7.2zM2 9.5h20v5H2z"/></svg></div>
+                        <div class="exp-company-info">
+                            <h3>Samsung Research Institute, Bangalore</h3>
+                            <h4>Computer Vision Lead Engineer</h4>
+                        </div>
+                        <span class="exp-date">Nov 2021 - Aug 2025</span>
                     </div>
+                    <ul class="exp-list">
+                        <li>SOTA low-light image/video enhancement with deep learning denoising</li>
+                        <li>Commercialized Moiré Removal (Galaxy S23) and Deblurring (Galaxy S24)</li>
+                        <li>Diffusion Models for image generation & restoration</li>
+                        <li>Real-time mobile inference via QAT & pruning</li>
+                        <li>Multiple Samsung Best Paper Award (SBPA) recognitions</li>
+                    </ul>
                 </div>
                 
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <span class="timeline-date">Jul 2018 - Oct 2021</span>
-                        <h3>Synergy Labs</h3>
-                        <h4>Deep Learning Engineer</h4>
-                        <ul>
-                            <li>Built video analytics pipelines for traffic incident detection & people counting</li>
-                            <li>Developed ALPR system using anchor-based detector + multi-head OCR on Jetson TX2</li>
-                            <li>Designed GAN-based synthetic number plate generator</li>
-                            <li>Created document OCR pipeline with CNN-RNN hybrid and INT8 quantization</li>
-                            <li>Built vehicle axle classification system for toll management</li>
-                        </ul>
+                <div class="exp-card">
+                    <div class="exp-header">
+                        <div class="exp-logo"><i class="fas fa-flask" style="color: var(--primary-light); font-size: 1.5rem;"></i></div>
+                        <div class="exp-company-info">
+                            <h3>Synergy Labs</h3>
+                            <h4>Deep Learning Engineer</h4>
+                        </div>
+                        <span class="exp-date">Jul 2018 - Oct 2021</span>
                     </div>
+                    <ul class="exp-list">
+                        <li>Video analytics for traffic detection & people counting</li>
+                        <li>ALPR system with anchor-based detector + multi-head OCR on Jetson TX2</li>
+                        <li>GAN-based synthetic data generation and document OCR pipeline</li>
+                        <li>Vehicle axle classification system for toll management</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -280,164 +262,197 @@
             <div class="section-header">
                 <span class="section-tag">Projects</span>
                 <h2 class="section-title">Featured Work</h2>
-                <p class="section-desc">Production-grade AI solutions deployed at scale</p>
+                <p class="section-desc">LLM infrastructure, generative AI, and production ML systems</p>
             </div>
             
             <div class="projects-grid">
                 <div class="project-card">
-                    <div class="project-image">
-                        <img src="images/low-light-enhancement.jpg" alt="Low-Light Image Enhancement">
-                        <div class="project-overlay"></div>
+                    <div class="project-icon-placeholder">
+                        <div class="icon-bg" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                            <i class="fas fa-server"></i>
+                        </div>
                     </div>
                     <div class="project-info">
-                        <h3>Low-Light Image/Video Enhancement</h3>
-                        <p>SOTA deep learning–based denoising with Bayer-domain video denoising and NV21 enhancement pipelines.</p>
-                        <div class="project-tech"><span>PyTorch</span><span>Quantization</span><span>ONNX</span><span>NPU</span></div>
+                        <h3>LLM Inference Optimization (vLLM)</h3>
+                        <p>High-throughput LLM serving infrastructure at Red Hat — optimizing KV cache, continuous batching, and model parallelism for foundation models.</p>
+                        <div class="project-tech"><span>vLLM</span><span>LLM Serving</span><span>KV Cache</span><span>Distributed Inference</span></div>
                     </div>
                 </div>
                 
                 <div class="project-card">
-                    <div class="project-image">
-                        <img src="images/anpr-system.jpg" alt="ALPR System">
-                        <div class="project-overlay"></div>
+                    <div class="project-icon-placeholder">
+                        <div class="icon-bg" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                            <i class="fas fa-brain"></i>
+                        </div>
                     </div>
                     <div class="project-info">
-                        <h3>ALPR System (Jetson TX2)</h3>
-                        <p>License plate recognition using anchor-based detector + multi-head OCR classifier.</p>
-                        <div class="project-tech"><span>Jetson TX2</span><span>YOLO</span><span>OCR</span><span>GAN</span></div>
+                        <h3>LLM Fine-Tuning & Training Hub</h3>
+                        <p>Scalable training pipelines for large language models using LoRA, QLoRA, and distributed training with torchtune integration.</p>
+                        <div class="project-tech"><span>torchtune</span><span>LoRA</span><span>FSDP</span><span>PyTorch</span></div>
+                        <div class="project-links"><a href="https://github.com/Gaurav14cs17/LLM_FineTune" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a></div>
                     </div>
                 </div>
                 
                 <div class="project-card">
-                    <div class="project-image">
-                        <img src="images/project.jpg" alt="Moiré Pattern Removal">
-                        <div class="project-overlay"></div>
+                    <div class="project-icon-placeholder">
+                        <div class="icon-bg" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                            <i class="fas fa-wand-magic-sparkles"></i>
+                        </div>
                     </div>
                     <div class="project-info">
-                        <h3>Moiré Pattern Removal (Galaxy S23)</h3>
-                        <p>Commercialized Single Image Moiré Pattern Removal model deployed on Galaxy S23 series.</p>
-                        <div class="project-tech"><span>PyTorch</span><span>QAT</span><span>Samsung SoC</span></div>
+                        <h3>Diffusion Models for Image Generation</h3>
+                        <p>Diffusion-based image generation and restoration models — commercialized on Samsung Galaxy S23/S24 with real-time mobile inference via QAT.</p>
+                        <div class="project-tech"><span>Diffusion Models</span><span>QAT</span><span>Samsung SoC</span><span>PyTorch</span></div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon-placeholder">
+                        <div class="icon-bg" style="background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);">
+                            <i class="fas fa-font"></i>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Diffusion Language Models</h3>
+                        <p>Text generation using diffusion-style denoising — iteratively refining noisy sequences into coherent text, an alternative to autoregressive decoding.</p>
+                        <div class="project-tech"><span>Diffusion LM</span><span>Flow Matching</span><span>PyTorch</span><span>Transformers</span></div>
+                        <div class="project-links"><a href="https://github.com/Gaurav14cs17/Diffusion-Language-Model" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a></div>
                     </div>
                 </div>
                 
                 <div class="project-card">
-                    <div class="project-image">
-                        <img src="images/facial-recognition.jpg" alt="YOLOX Object Detection">
-                        <div class="project-overlay"></div>
+                    <div class="project-icon-placeholder">
+                        <div class="icon-bg" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                            <i class="fas fa-compress-arrows-alt"></i>
+                        </div>
                     </div>
                     <div class="project-info">
-                        <h3>YOLOX / YOLOE Object Detection</h3>
-                        <p>Anchor-free, CSP-based detectors optimized for real-time inference.</p>
-                        <div class="project-tech"><span>YOLOX</span><span>CSPNet</span><span>PyTorch</span></div>
-                        <div class="project-links"><a href="https://github.com/Gaurav14cs17" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a></div>
+                        <h3>LLM & Model Quantization</h3>
+                        <p>End-to-end quantization pipelines for LLMs and vision models — GPTQ, QAT, INT8, pruning for efficient deployment on edge and cloud.</p>
+                        <div class="project-tech"><span>Quantization</span><span>ONNX</span><span>GPTQ</span><span>Pruning</span></div>
+                        <div class="project-links"><a href="https://github.com/Gaurav14cs17/YOLOXModel_Quant" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a></div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon-placeholder">
+                        <div class="icon-bg" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+                            <i class="fas fa-crosshairs"></i>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>FlashDet — End-to-End Detection System</h3>
+                        <p>Complete desktop app with LoRA/QLoRA fine-tuning, knowledge distillation, ONNX export, and INT8 quantization — train to deploy without code.</p>
+                        <div class="project-tech"><span>LoRA</span><span>KD</span><span>Quantization</span><span>PyQt5</span></div>
+                        <div class="project-links"><a href="https://github.com/Gaurav14cs17/FlashDet" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="demos" style="background: linear-gradient(180deg, var(--darker, #0d0d1a) 0%, var(--dark, #12122a) 100%);">
+    <section id="demos" style="background: var(--darker);">
         <div class="section-container">
             <div class="section-header">
                 <span class="section-tag">Demo Videos</span>
                 <h2 class="section-title">Project Demos</h2>
-                <p class="section-desc">Watch my AI & Computer Vision projects in action</p>
+                <p class="section-desc">AI & deep learning projects in action — from LLM tools to real-time vision systems</p>
             </div>
             
             <div class="videos-grid">
                 <a href="https://www.youtube.com/watch?v=3MAxLGNXKKg" target="_blank" rel="noopener noreferrer" class="video-card">
                     <div class="video-thumb">
-                        <span class="video-badge">Demo</span>
-                        <img src="https://img.youtube.com/vi/3MAxLGNXKKg/hqdefault.jpg" alt="Demo Video 1" loading="lazy">
+                        <span class="video-badge">LLM Tool</span>
+                        <img src="https://img.youtube.com/vi/3MAxLGNXKKg/hqdefault.jpg" alt="LLM Fine-Tuning Desktop App" loading="lazy">
                         <div class="play-btn"></div>
                     </div>
                     <div class="video-info">
                         <i class="fab fa-youtube yt-icon"></i>
-                        <span>Watch on YouTube</span>
+                        <span>LLM Fine-Tuning Desktop App (torchtune GUI)</span>
                     </div>
                 </a>
 
                 <a href="https://www.youtube.com/watch?v=Yb0ONjgMrMw" target="_blank" rel="noopener noreferrer" class="video-card">
                     <div class="video-thumb">
-                        <span class="video-badge">Demo</span>
-                        <img src="https://img.youtube.com/vi/Yb0ONjgMrMw/hqdefault.jpg" alt="Demo Video 2" loading="lazy">
+                        <span class="video-badge">Detection</span>
+                        <img src="https://img.youtube.com/vi/Yb0ONjgMrMw/hqdefault.jpg" alt="FlashDet Real-Time Object Detection" loading="lazy">
                         <div class="play-btn"></div>
                     </div>
                     <div class="video-info">
                         <i class="fab fa-youtube yt-icon"></i>
-                        <span>Watch on YouTube</span>
+                        <span>FlashDet — Real-Time Object Detection System</span>
                     </div>
                 </a>
 
                 <a href="https://www.youtube.com/watch?v=OcDmuZQMvV0" target="_blank" rel="noopener noreferrer" class="video-card">
                     <div class="video-thumb">
-                        <span class="video-badge">Demo</span>
-                        <img src="https://img.youtube.com/vi/OcDmuZQMvV0/hqdefault.jpg" alt="Demo Video 3" loading="lazy">
+                        <span class="video-badge">GenAI</span>
+                        <img src="https://img.youtube.com/vi/OcDmuZQMvV0/hqdefault.jpg" alt="AI Object Removal & Inpainting" loading="lazy">
                         <div class="play-btn"></div>
                     </div>
                     <div class="video-info">
                         <i class="fab fa-youtube yt-icon"></i>
-                        <span>Watch on YouTube</span>
+                        <span>AI Object Removal & Inpainting Demo</span>
                     </div>
                 </a>
 
                 <a href="https://www.youtube.com/watch?v=btrCZSccNd4" target="_blank" rel="noopener noreferrer" class="video-card">
                     <div class="video-thumb">
-                        <span class="video-badge">Demo</span>
-                        <img src="https://img.youtube.com/vi/btrCZSccNd4/hqdefault.jpg" alt="Demo Video 4" loading="lazy">
+                        <span class="video-badge">Vision</span>
+                        <img src="https://img.youtube.com/vi/btrCZSccNd4/hqdefault.jpg" alt="Low-Light Image Enhancement" loading="lazy">
                         <div class="play-btn"></div>
                     </div>
                     <div class="video-info">
                         <i class="fab fa-youtube yt-icon"></i>
-                        <span>Watch on YouTube</span>
+                        <span>Low-Light Image Enhancement Pipeline</span>
                     </div>
                 </a>
 
                 <a href="https://www.youtube.com/watch?v=WzxE-0bugSI" target="_blank" rel="noopener noreferrer" class="video-card">
                     <div class="video-thumb">
-                        <span class="video-badge">Demo</span>
-                        <img src="https://img.youtube.com/vi/WzxE-0bugSI/hqdefault.jpg" alt="Demo Video 5" loading="lazy">
+                        <span class="video-badge">Edge AI</span>
+                        <img src="https://img.youtube.com/vi/WzxE-0bugSI/hqdefault.jpg" alt="ALPR on Jetson TX2" loading="lazy">
                         <div class="play-btn"></div>
                     </div>
                     <div class="video-info">
                         <i class="fab fa-youtube yt-icon"></i>
-                        <span>Watch on YouTube</span>
+                        <span>ALPR System on Jetson TX2 — Edge Inference</span>
                     </div>
                 </a>
 
                 <a href="https://www.youtube.com/watch?v=DOeOW57l6IE" target="_blank" rel="noopener noreferrer" class="video-card">
                     <div class="video-thumb">
-                        <span class="video-badge">Demo</span>
-                        <img src="https://img.youtube.com/vi/DOeOW57l6IE/hqdefault.jpg" alt="Demo Video 6" loading="lazy">
+                        <span class="video-badge">Analytics</span>
+                        <img src="https://img.youtube.com/vi/DOeOW57l6IE/hqdefault.jpg" alt="Video Analytics Pipeline" loading="lazy">
                         <div class="play-btn"></div>
                     </div>
                     <div class="video-info">
                         <i class="fab fa-youtube yt-icon"></i>
-                        <span>Watch on YouTube</span>
+                        <span>Video Analytics — Traffic & People Counting</span>
                     </div>
                 </a>
 
                 <a href="https://www.youtube.com/watch?v=Vx245mGmiQ4" target="_blank" rel="noopener noreferrer" class="video-card">
                     <div class="video-thumb">
-                        <span class="video-badge">Demo</span>
-                        <img src="https://img.youtube.com/vi/Vx245mGmiQ4/hqdefault.jpg" alt="Demo Video 7" loading="lazy">
+                        <span class="video-badge">Quantization</span>
+                        <img src="https://img.youtube.com/vi/Vx245mGmiQ4/hqdefault.jpg" alt="Model Quantization Demo" loading="lazy">
                         <div class="play-btn"></div>
                     </div>
                     <div class="video-info">
                         <i class="fab fa-youtube yt-icon"></i>
-                        <span>Watch on YouTube</span>
+                        <span>Model Quantization & Mobile Deployment</span>
                     </div>
                 </a>
 
                 <a href="https://www.youtube.com/shorts/eJlY8psZiq0" target="_blank" rel="noopener noreferrer" class="video-card">
                     <div class="video-thumb">
                         <span class="video-badge">Short</span>
-                        <img src="https://img.youtube.com/vi/eJlY8psZiq0/hqdefault.jpg" alt="Demo Short" loading="lazy">
+                        <img src="https://img.youtube.com/vi/eJlY8psZiq0/hqdefault.jpg" alt="AI Quick Demo" loading="lazy">
                         <div class="play-btn"></div>
                     </div>
                     <div class="video-info">
                         <i class="fab fa-youtube yt-icon"></i>
-                        <span>Watch Short on YouTube</span>
+                        <span>AI in Action — Quick Demo</span>
                     </div>
                 </a>
             </div>
@@ -449,47 +464,33 @@
             <div class="section-header">
                 <span class="section-tag">Open Source</span>
                 <h2 class="section-title">GitHub Repositories</h2>
-                <p class="section-desc">Original projects covering ML System Design, Deep Learning & Computer Vision</p>
+                <p class="section-desc">LLMs, diffusion models, efficient inference, and production ML systems</p>
             </div>
             
             <div class="repos-grid">
-                <a href="https://github.com/Gaurav14cs17/ml_system_design" target="_blank" rel="noopener noreferrer" class="repo-card">
-                    <div class="repo-icon"><i class="fas fa-brain"></i></div>
+                <a href="https://github.com/Gaurav14cs17/LLM_FineTune" target="_blank" rel="noopener noreferrer" class="repo-card">
+                    <div class="repo-icon"><i class="fas fa-fire"></i></div>
                     <div class="repo-content">
-                        <h3>ml_system_design</h3>
-                        <p>Comprehensive, topic-organized guide to Machine Learning System Design focused on both learning and practical application for engineers.</p>
+                        <h3>LLM_FineTune</h3>
+                        <p>A comprehensive, chapter-by-chapter guide to LLMs — from probability basics to scaling laws, with hands-on fine-tuning code.</p>
                         <div class="repo-tags">
-                            <span>ML System Design</span>
-                            <span>Interview Prep</span>
-                            <span>Best Practices</span>
+                            <span>LLM</span>
+                            <span>Fine-Tuning</span>
+                            <span>Scaling Laws</span>
                         </div>
                     </div>
                     <div class="repo-arrow"><i class="fas fa-arrow-right"></i></div>
                 </a>
 
-                <a href="https://github.com/Gaurav14cs17/DSA" target="_blank" rel="noopener noreferrer" class="repo-card">
-                    <div class="repo-icon"><i class="fas fa-code"></i></div>
+                <a href="https://github.com/Gaurav14cs17/LLMFineTune" target="_blank" rel="noopener noreferrer" class="repo-card">
+                    <div class="repo-icon"><i class="fas fa-desktop"></i></div>
                     <div class="repo-content">
-                        <h3>DSA</h3>
-                        <p>Well-organized repository covering core Data Structures and Algorithms, from fundamentals to advanced topics for systematic learning.</p>
+                        <h3>LLMFineTune (Desktop App)</h3>
+                        <p>PyQt5 desktop GUI for fine-tuning, evaluating, and deploying LLMs using torchtune — no command-line required.</p>
                         <div class="repo-tags">
-                            <span>Data Structures</span>
-                            <span>Algorithms</span>
-                            <span>Competitive Programming</span>
-                        </div>
-                    </div>
-                    <div class="repo-arrow"><i class="fas fa-arrow-right"></i></div>
-                </a>
-
-                <a href="https://github.com/Gaurav14cs17/ml-researcher-foundations" target="_blank" rel="noopener noreferrer" class="repo-card">
-                    <div class="repo-icon"><i class="fas fa-graduation-cap"></i></div>
-                    <div class="repo-content">
-                        <h3>ml-researcher-foundations</h3>
-                        <p>Structured end-to-end roadmap for ML researchers covering math foundations, ML theory, deep learning, optimization & efficient ML.</p>
-                        <div class="repo-tags">
-                            <span>Research</span>
-                            <span>Mathematics</span>
-                            <span>Deep Learning</span>
+                            <span>torchtune</span>
+                            <span>LoRA</span>
+                            <span>GUI App</span>
                         </div>
                     </div>
                     <div class="repo-arrow"><i class="fas fa-arrow-right"></i></div>
@@ -499,11 +500,39 @@
                     <div class="repo-icon"><i class="fas fa-robot"></i></div>
                     <div class="repo-content">
                         <h3>LLMs_Model</h3>
-                        <p>Comprehensive guides for working with Large Language Models including architectures, training, and deployment strategies.</p>
+                        <p>Comprehensive guides for working with Large Language Models — architectures, training, and deployment strategies.</p>
                         <div class="repo-tags">
-                            <span>LLMs</span>
+                            <span>LLM Architectures</span>
                             <span>Transformers</span>
-                            <span>NLP</span>
+                            <span>Deployment</span>
+                        </div>
+                    </div>
+                    <div class="repo-arrow"><i class="fas fa-arrow-right"></i></div>
+                </a>
+
+                <a href="https://github.com/Gaurav14cs17/AwesomeKVCach-and-LLMCompression" target="_blank" rel="noopener noreferrer" class="repo-card">
+                    <div class="repo-icon"><i class="fas fa-compress-arrows-alt"></i></div>
+                    <div class="repo-content">
+                        <h3>AwesomeKVCache-and-LLMCompression</h3>
+                        <p>Curated collection of 150+ research papers on KV Cache Management, KV Cache Compression, and LLM Compression for efficient inference.</p>
+                        <div class="repo-tags">
+                            <span>KV Cache</span>
+                            <span>LLM Compression</span>
+                            <span>Efficient Inference</span>
+                        </div>
+                    </div>
+                    <div class="repo-arrow"><i class="fas fa-arrow-right"></i></div>
+                </a>
+
+                <a href="https://github.com/Gaurav14cs17/LoRA" target="_blank" rel="noopener noreferrer" class="repo-card">
+                    <div class="repo-icon"><i class="fas fa-sliders-h"></i></div>
+                    <div class="repo-content">
+                        <h3>LoRA</h3>
+                        <p>Implementation of LoRA: Low-Rank Adaptation of Large Language Models — parameter-efficient fine-tuning from scratch.</p>
+                        <div class="repo-tags">
+                            <span>LoRA</span>
+                            <span>PEFT</span>
+                            <span>Fine-Tuning</span>
                         </div>
                     </div>
                     <div class="repo-arrow"><i class="fas fa-arrow-right"></i></div>
@@ -513,11 +542,25 @@
                     <div class="repo-icon"><i class="fas fa-wand-magic-sparkles"></i></div>
                     <div class="repo-content">
                         <h3>Diffusion-Language-Model</h3>
-                        <p>Implementation of Diffusion Language Models for text generation using diffusion-based approaches.</p>
+                        <p>Diffusion-style denoising for text generation — iteratively refining noisy sequences into coherent text, an alternative to autoregressive LLMs.</p>
                         <div class="repo-tags">
-                            <span>Diffusion Models</span>
-                            <span>Language Models</span>
+                            <span>Diffusion LM</span>
+                            <span>Text Generation</span>
                             <span>PyTorch</span>
+                        </div>
+                    </div>
+                    <div class="repo-arrow"><i class="fas fa-arrow-right"></i></div>
+                </a>
+
+                <a href="https://github.com/Gaurav14cs17/REGLA-Refining-Gated-Linear-Attention" target="_blank" rel="noopener noreferrer" class="repo-card">
+                    <div class="repo-icon"><i class="fas fa-bolt"></i></div>
+                    <div class="repo-content">
+                        <h3>REGLA — Gated Linear Attention</h3>
+                        <p>Refining Gated Linear Attention — efficient alternative to softmax attention for scalable sequence modeling.</p>
+                        <div class="repo-tags">
+                            <span>Linear Attention</span>
+                            <span>Efficient Transformers</span>
+                            <span>Research</span>
                         </div>
                     </div>
                     <div class="repo-arrow"><i class="fas fa-arrow-right"></i></div>
@@ -527,7 +570,7 @@
                     <div class="repo-icon"><i class="fas fa-layer-group"></i></div>
                     <div class="repo-content">
                         <h3>Attention_mechanisms</h3>
-                        <p>Three in-depth surveys covering efficient transformer architectures and attention mechanisms.</p>
+                        <p>Three in-depth surveys covering efficient transformer architectures, attention variants, and optimization techniques.</p>
                         <div class="repo-tags">
                             <span>Attention</span>
                             <span>Transformers</span>
@@ -537,57 +580,71 @@
                     <div class="repo-arrow"><i class="fas fa-arrow-right"></i></div>
                 </a>
 
-                <a href="https://github.com/Gaurav14cs17/YOLOv8-RepNeXt" target="_blank" rel="noopener noreferrer" class="repo-card">
+                <a href="https://github.com/Gaurav14cs17/FlashDet" target="_blank" rel="noopener noreferrer" class="repo-card">
                     <div class="repo-icon"><i class="fas fa-crosshairs"></i></div>
                     <div class="repo-content">
-                        <h3>YOLOv8-RepNeXt</h3>
-                        <p>PyTorch implementation of YOLOv8 with RepNeXt for fast and accurate object detection with efficient inference.</p>
+                        <h3>FlashDet</h3>
+                        <p>End-to-end object detection system with PyQt5 desktop app — LoRA/QLoRA fine-tuning, knowledge distillation, ONNX export, INT8 quantization. 0.49M–2.44M params, 100+ FPS.</p>
                         <div class="repo-tags">
-                            <span>YOLO</span>
-                            <span>Object Detection</span>
-                            <span>PyTorch</span>
+                            <span>LoRA</span>
+                            <span>Knowledge Distillation</span>
+                            <span>Desktop App</span>
                         </div>
                     </div>
                     <div class="repo-arrow"><i class="fas fa-arrow-right"></i></div>
                 </a>
 
-                <a href="https://github.com/Gaurav14cs17/YOLOE" target="_blank" rel="noopener noreferrer" class="repo-card">
-                    <div class="repo-icon"><i class="fas fa-bullseye"></i></div>
+                <a href="https://github.com/Gaurav14cs17/DataDrift" target="_blank" rel="noopener noreferrer" class="repo-card">
+                    <div class="repo-icon"><i class="fas fa-chart-line"></i></div>
                     <div class="repo-content">
-                        <h3>YOLOE</h3>
-                        <p>PP-YOLOE industrial state-of-the-art anchor-free object detector with high performance and friendly deployment.</p>
+                        <h3>DataDrift</h3>
+                        <p>Research paper on data drift in production ML — taxonomy (covariate/concept/label shift), mathematical formulations (KL, PSI, Wasserstein), monitoring architectures, and 200+ curated papers.</p>
                         <div class="repo-tags">
-                            <span>PP-YOLOE</span>
-                            <span>Anchor-Free</span>
-                            <span>Industrial</span>
+                            <span>Data Drift</span>
+                            <span>MLOps</span>
+                            <span>200+ Papers</span>
                         </div>
                     </div>
                     <div class="repo-arrow"><i class="fas fa-arrow-right"></i></div>
                 </a>
 
-                <a href="https://github.com/Gaurav14cs17/LEAF-YOLO" target="_blank" rel="noopener noreferrer" class="repo-card">
-                    <div class="repo-icon"><i class="fas fa-helicopter"></i></div>
+                <a href="https://github.com/Gaurav14cs17/ml_system_design" target="_blank" rel="noopener noreferrer" class="repo-card">
+                    <div class="repo-icon"><i class="fas fa-brain"></i></div>
                     <div class="repo-content">
-                        <h3>LEAF-YOLO</h3>
-                        <p>Object detection model for aerial imagery and edge devices - optimized for drones and embedded systems.</p>
+                        <h3>ml_system_design</h3>
+                        <p>Comprehensive guide to ML System Design — covering LLM serving, training pipelines, scaling, and real-world architecture patterns.</p>
                         <div class="repo-tags">
-                            <span>Aerial Detection</span>
-                            <span>Edge AI</span>
-                            <span>Drones</span>
+                            <span>System Design</span>
+                            <span>LLM Serving</span>
+                            <span>Architecture</span>
                         </div>
                     </div>
                     <div class="repo-arrow"><i class="fas fa-arrow-right"></i></div>
                 </a>
 
-                <a href="https://github.com/Gaurav14cs17/Reparameterization-Denoising" target="_blank" rel="noopener noreferrer" class="repo-card">
-                    <div class="repo-icon"><i class="fas fa-image"></i></div>
+                <a href="https://github.com/Gaurav14cs17/ImageObjectRemoval" target="_blank" rel="noopener noreferrer" class="repo-card">
+                    <div class="repo-icon"><i class="fas fa-eraser"></i></div>
                     <div class="repo-content">
-                        <h3>Reparameterization-Denoising</h3>
-                        <p>MFDNet - Mobile Real-Time Denoising Network using Haar wavelets, RepConv layers & Multi-Frequency Attention for efficient denoising.</p>
+                        <h3>ImageObjectRemoval</h3>
+                        <p>Remove objects from photos including shadows and reflections using generative inpainting — end-to-end diffusion-based restoration.</p>
                         <div class="repo-tags">
-                            <span>Image Denoising</span>
-                            <span>Mobile AI</span>
-                            <span>Reparameterization</span>
+                            <span>Generative AI</span>
+                            <span>Inpainting</span>
+                            <span>Diffusion</span>
+                        </div>
+                    </div>
+                    <div class="repo-arrow"><i class="fas fa-arrow-right"></i></div>
+                </a>
+
+                <a href="https://github.com/Gaurav14cs17/DSA" target="_blank" rel="noopener noreferrer" class="repo-card">
+                    <div class="repo-icon"><i class="fas fa-code"></i></div>
+                    <div class="repo-content">
+                        <h3>DSA</h3>
+                        <p>170+ stars — well-organized Data Structures and Algorithms covering fundamentals to advanced topics for coding interviews.</p>
+                        <div class="repo-tags">
+                            <span>DSA</span>
+                            <span>170 Stars</span>
+                            <span>Algorithms</span>
                         </div>
                     </div>
                     <div class="repo-arrow"><i class="fas fa-arrow-right"></i></div>
@@ -596,7 +653,7 @@
             
             <div style="text-align: center; margin-top: 3rem;">
                 <a href="https://github.com/Gaurav14cs17?tab=repositories" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-                    <i class="fab fa-github"></i> View All Repositories
+                    <i class="fab fa-github"></i> View All 176 Repositories
                 </a>
             </div>
         </div>
@@ -611,18 +668,26 @@
             
             <div class="skills-grid">
                 <div class="skill-category">
+                    <div class="skill-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
+                    <h3>LLMs & GenAI</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">vLLM</span><span class="skill-tag">torchtune</span><span class="skill-tag">LoRA / QLoRA</span><span class="skill-tag">KV Cache Optimization</span><span class="skill-tag">Diffusion Models</span><span class="skill-tag">Flow Matching</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
                     <div class="skill-icon"><i class="fas fa-server"></i></div>
                     <h3>AI Infrastructure</h3>
                     <div class="skill-list">
-                        <span class="skill-tag">vLLM</span><span class="skill-tag">Training Hub</span><span class="skill-tag">Distributed Training</span><span class="skill-tag">Model Serving</span><span class="skill-tag">Open Source</span>
+                        <span class="skill-tag">Distributed Training</span><span class="skill-tag">FSDP</span><span class="skill-tag">Model Serving</span><span class="skill-tag">Training Hub</span><span class="skill-tag">Open Source</span>
                     </div>
                 </div>
 
                 <div class="skill-category">
                     <div class="skill-icon"><i class="fas fa-brain"></i></div>
-                    <h3>Deep Learning</h3>
+                    <h3>Deep Learning & Optimization</h3>
                     <div class="skill-list">
-                        <span class="skill-tag">PyTorch</span><span class="skill-tag">TensorFlow</span><span class="skill-tag">ONNX</span><span class="skill-tag">Quantization</span><span class="skill-tag">Diffusion Models</span>
+                        <span class="skill-tag">PyTorch</span><span class="skill-tag">ONNX</span><span class="skill-tag">Quantization (QAT / GPTQ)</span><span class="skill-tag">Pruning</span><span class="skill-tag">TensorFlow</span>
                     </div>
                 </div>
                 
@@ -630,30 +695,22 @@
                     <div class="skill-icon"><i class="fas fa-eye"></i></div>
                     <h3>Computer Vision</h3>
                     <div class="skill-list">
-                        <span class="skill-tag">OpenCV</span><span class="skill-tag">Image Enhancement</span><span class="skill-tag">Denoising</span><span class="skill-tag">Detection</span><span class="skill-tag">OCR</span>
+                        <span class="skill-tag">Image Enhancement</span><span class="skill-tag">Denoising</span><span class="skill-tag">Object Detection</span><span class="skill-tag">Generative Inpainting</span><span class="skill-tag">OpenCV</span>
                     </div>
                 </div>
                 
                 <div class="skill-category">
                     <div class="skill-icon"><i class="fas fa-code"></i></div>
-                    <h3>Programming</h3>
+                    <h3>Programming & Systems</h3>
                     <div class="skill-list">
-                        <span class="skill-tag">Python</span><span class="skill-tag">C++</span><span class="skill-tag">Data Structures</span><span class="skill-tag">Algorithms</span>
-                    </div>
-                </div>
-                
-                <div class="skill-category">
-                    <div class="skill-icon"><i class="fas fa-cogs"></i></div>
-                    <h3>Tools & Platforms</h3>
-                    <div class="skill-list">
-                        <span class="skill-tag">GStreamer</span><span class="skill-tag">Jetson</span><span class="skill-tag">NPU/DSP</span><span class="skill-tag">Git</span><span class="skill-tag">Linux</span>
+                        <span class="skill-tag">Python</span><span class="skill-tag">C++</span><span class="skill-tag">CUDA</span><span class="skill-tag">Linux</span><span class="skill-tag">Git</span><span class="skill-tag">Docker</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="achievements" style="background: linear-gradient(180deg, var(--darker) 0%, var(--dark) 100%);">
+    <section id="achievements" style="background: var(--dark);">
         <div class="section-container">
             <div class="section-header">
                 <span class="section-tag">Achievements</span>
@@ -661,46 +718,32 @@
                 <p class="section-desc">1900+ problems solved across platforms</p>
             </div>
             
-            <div class="skills-grid">
-                <div class="skill-category" style="text-align: center;">
-                    <div class="skill-icon" style="margin: 0 auto 1rem;"><i class="fas fa-code"></i></div>
-                    <h3>LeetCode</h3>
-                    <p style="font-size: 2rem; font-weight: 700; color: var(--warning);">500+</p>
-                    <p style="color: var(--gray);">Problems Solved</p>
-                    <a href="https://leetcode.com/u/gou_rav/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="margin-top: 1rem; padding: 0.5rem 1rem;">View Profile</a>
-                </div>
-                
-                <div class="skill-category" style="text-align: center;">
-                    <div class="skill-icon" style="margin: 0 auto 1rem;"><i class="fas fa-trophy"></i></div>
-                    <h3>Codeforces</h3>
-                    <p style="font-size: 2rem; font-weight: 700; color: var(--accent);">800+</p>
-                    <p style="color: var(--gray);">Problems Solved</p>
-                    <a href="https://codeforces.com/profile/scottaran9" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="margin-top: 1rem; padding: 0.5rem 1rem;">View Profile</a>
-                </div>
-                
-                <div class="skill-category" style="text-align: center;">
-                    <div class="skill-icon" style="margin: 0 auto 1rem;"><i class="fas fa-star"></i></div>
-                    <h3>CodeChef</h3>
-                    <p style="font-size: 2rem; font-weight: 700; color: var(--secondary);">400+</p>
-                    <p style="color: var(--gray);">Problems Solved</p>
-                    <a href="https://www.codechef.com/users/gou_rav" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="margin-top: 1rem; padding: 0.5rem 1rem;">View Profile</a>
-                </div>
-                
-                <div class="skill-category" style="text-align: center;">
-                    <div class="skill-icon" style="margin: 0 auto 1rem;"><i class="fab fa-hackerrank"></i></div>
-                    <h3>HackerRank</h3>
-                    <p style="font-size: 2rem; font-weight: 700; color: var(--success);">150+</p>
-                    <p style="color: var(--gray);">Problems Solved</p>
-                    <a href="https://www.hackerrank.com/gou_rav" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="margin-top: 1rem; padding: 0.5rem 1rem;">View Profile</a>
-                </div>
-                
-                <div class="skill-category" style="text-align: center;">
-                    <div class="skill-icon" style="margin: 0 auto 1rem;"><i class="fas fa-laptop-code"></i></div>
-                    <h3>HackerEarth</h3>
-                    <p style="font-size: 2rem; font-weight: 700; color: var(--primary);">300+</p>
-                    <p style="color: var(--gray);">Problems Solved</p>
-                    <a href="https://www.hackerearth.com/@gou_rav/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="margin-top: 1rem; padding: 0.5rem 1rem;">View Profile</a>
-                </div>
+            <div class="cp-grid">
+                <a href="https://leetcode.com/u/gou_rav/" target="_blank" rel="noopener noreferrer" class="cp-card">
+                    <div class="cp-icon"><i class="fas fa-code" style="color: #FFA116;"></i></div>
+                    <span class="cp-count">500+</span>
+                    <span class="cp-name">LeetCode</span>
+                </a>
+                <a href="https://codeforces.com/profile/scottaran9" target="_blank" rel="noopener noreferrer" class="cp-card">
+                    <div class="cp-icon"><i class="fas fa-trophy" style="color: #1F8ACB;"></i></div>
+                    <span class="cp-count">800+</span>
+                    <span class="cp-name">Codeforces</span>
+                </a>
+                <a href="https://www.codechef.com/users/gou_rav" target="_blank" rel="noopener noreferrer" class="cp-card">
+                    <div class="cp-icon"><i class="fas fa-star" style="color: #5B4638;"></i></div>
+                    <span class="cp-count">400+</span>
+                    <span class="cp-name">CodeChef</span>
+                </a>
+                <a href="https://www.hackerrank.com/gou_rav" target="_blank" rel="noopener noreferrer" class="cp-card">
+                    <div class="cp-icon"><i class="fab fa-hackerrank" style="color: #00EA64;"></i></div>
+                    <span class="cp-count">150+</span>
+                    <span class="cp-name">HackerRank</span>
+                </a>
+                <a href="https://www.hackerearth.com/@gou_rav/" target="_blank" rel="noopener noreferrer" class="cp-card">
+                    <div class="cp-icon"><i class="fas fa-laptop-code" style="color: #2C3454;"></i></div>
+                    <span class="cp-count">300+</span>
+                    <span class="cp-name">HackerEarth</span>
+                </a>
             </div>
         </div>
     </section>
@@ -713,10 +756,14 @@
             </div>
             
             <div class="education-card">
-                <div class="education-icon"><i class="fas fa-graduation-cap"></i></div>
-                <h3>Mahatma Jyotiba Phule Rohilkhand University, Bareilly</h3>
-                <p class="date">2014 - 2018</p>
-                <h4>B.Tech, Computer Science Engineering</h4>
+                <div class="edu-header">
+                    <div class="edu-logo"><i class="fas fa-university" style="font-size: 1.5rem; color: var(--primary-light);"></i></div>
+                    <div class="edu-info">
+                        <h3>Mahatma Jyotiba Phule Rohilkhand University, Bareilly</h3>
+                        <h4>B.Tech, Computer Science Engineering</h4>
+                        <p class="date">2014 - 2018</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -773,7 +820,7 @@
             <a href="https://www.hackerrank.com/gou_rav" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fab fa-hackerrank"></i></a>
             <a href="https://www.hackerearth.com/@gou_rav/" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fas fa-laptop-code"></i></a>
         </div>
-        <p class="footer-text">&copy; 2026 <a href="#">Gaurav Goswami</a>. Built with &hearts; and lots of coffee</p>
+        <p class="footer-text">&copy; 2026 <a href="#">Gaurav Goswami</a></p>
     </footer>
 
     <script>
