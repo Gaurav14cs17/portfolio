@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Projects & Open Source | Gaurav Goswami</title>
+    <meta name="description" content="Featured AI/ML projects, LLM infrastructure, and open-source repositories by Gaurav Goswami">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css?v=6">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <style>
+        .page-hero {
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+            position: relative;
+        }
+        .page-hero .hero-bg {
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 30% 40%, rgba(99, 102, 241, 0.08) 0%, transparent 60%),
+                radial-gradient(ellipse at 70% 60%, rgba(139, 92, 246, 0.05) 0%, transparent 60%);
+        }
+        .page-hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .page-hero h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+        .page-hero p {
+            color: var(--gray);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            max-width: 560px;
+            margin: 0 auto;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: var(--transition);
+            margin-bottom: 1.5rem;
+        }
+        .back-link:hover {
+            color: var(--primary-light);
+        }
+        @media (max-width: 768px) {
+            .page-hero { padding: 6rem 1.25rem 2.5rem; }
+            .page-hero h1 { font-size: 1.75rem; }
+            .page-hero p { font-size: 0.9rem; }
+        }
+        @media (max-width: 480px) {
+            .page-hero { padding: 5rem 0.875rem 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">GG</a>
+            <ul class="nav-links" id="nav-menu">
+                <li><a href="index.html">Resume</a></li>
+                <li><a href="projects.html" style="color: var(--primary-light);">Projects</a></li>
+                <li><a href="videos.html">Videos</a></li>
+                <li><a href="tutorials.html">Tutorials</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div class="mobile-toggle"><i class="fas fa-bars"></i></div>
+        </div>
+    </nav>
+
+    <section class="page-hero">
+        <div class="hero-bg"></div>
+        <div class="page-hero-content">
+            <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Resume</a>
+            <h1>Projects & Open Source</h1>
+            <p>LLM infrastructure, generative AI, production ML systems, and 176+ open-source repositories on GitHub.</p>
+        </div>
+    </section>
+
+    <section id="projects" style="background: var(--dark);">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">Featured</span>
+                <h2 class="section-title">Featured Work</h2>
+                <p class="section-desc">LLM infrastructure, generative AI, and production ML systems</p>
+            </div>
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-icon-placeholder">
+                        <div class="icon-bg" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                            <i class="fas fa-server"></i>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>LLM Inference Optimization (vLLM)</h3>
+                        <p>High-throughput LLM serving infrastructure at Red Hat — optimizing KV cache, continuous batching, and model parallelism for foundation models.</p>
+                        <div class="project-tech"><span>vLLM</span><span>LLM Serving</span><span>KV Cache</span><span>Distributed Inference</span></div>
+                        <div class="project-links"><a href="https://github.com/Gaurav14cs17/AwesomeKVCach-and-LLMCompression" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a></div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-icon-placeholder">
+                        <div class="icon-bg" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>LLM Fine-Tuning & Training Hub</h3>
+                        <p>Scalable training pipelines for large language models using LoRA, QLoRA, and distributed training with torchtune integration.</p>
+                        <div class="project-tech"><span>torchtune</span><span>LoRA</span><span>FSDP</span><span>PyTorch</span></div>
+                        <div class="project-links"><a href="https://github.com/Gaurav14cs17/LLM_FineTune" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a></div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-icon-placeholder">
+                        <div class="icon-bg" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                            <i class="fas fa-wand-magic-sparkles"></i>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Diffusion Models for Image Generation</h3>
+                        <p>Diffusion-based image generation and restoration models — commercialized on Samsung Galaxy S23/S24 with real-time mobile inference via QAT.</p>
+                        <div class="project-tech"><span>Diffusion Models</span><span>QAT</span><span>Samsung SoC</span><span>PyTorch</span></div>
+                        <div class="project-links"><a href="https://github.com/Gaurav14cs17/Low-Level-Vision" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a></div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon-placeholder">
+                        <div class="icon-bg" style="background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);">
+                            <i class="fas fa-font"></i>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Diffusion Language Models</h3>
+                        <p>Text generation using diffusion-style denoising — iteratively refining noisy sequences into coherent text, an alternative to autoregressive decoding.</p>
+                        <div class="project-tech"><span>Diffusion LM</span><span>Flow Matching</span><span>PyTorch</span><span>Transformers</span></div>
+                        <div class="project-links"><a href="https://github.com/Gaurav14cs17/Diffusion-Language-Model" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a></div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-icon-placeholder">
+                        <div class="icon-bg" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                            <i class="fas fa-compress-arrows-alt"></i>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>LLM & Model Quantization</h3>
+                        <p>End-to-end quantization pipelines for LLMs and vision models — GPTQ, QAT, INT8, pruning for efficient deployment on edge and cloud.</p>
+                        <div class="project-tech"><span>Quantization</span><span>ONNX</span><span>GPTQ</span><span>Pruning</span></div>
+                        <div class="project-links"><a href="https://github.com/Gaurav14cs17/YOLOXModel_Quant" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a></div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon-placeholder">
+                        <div class="icon-bg" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+                            <i class="fas fa-crosshairs"></i>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>FlashDet — End-to-End Detection System</h3>
+                        <p>Complete desktop app with LoRA/QLoRA fine-tuning, knowledge distillation, ONNX export, and INT8 quantization — train to deploy without code.</p>
+                        <div class="project-tech"><span>LoRA</span><span>KD</span><span>Quantization</span><span>PyQt5</span></div>
+                        <div class="project-links"><a href="https://github.com/Gaurav14cs17/FlashDet" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="repositories" style="background: var(--darker);">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">Open Source</span>
+                <h2 class="section-title">GitHub Repositories</h2>
+                <p class="section-desc">LLMs, diffusion models, efficient inference, and production ML systems</p>
+            </div>
+            
+            <div class="repos-grid">
+                <a href="https://github.com/Gaurav14cs17/LLM_FineTune" target="_blank" rel="noopener noreferrer" class="repo-card">
+                    <div class="repo-icon"><i class="fas fa-fire"></i></div>
+                    <div class="repo-content">
+                        <h3>LLM_FineTune</h3>
+                        <p>A comprehensive, chapter-by-chapter guide to LLMs — from probability basics to scaling laws, with hands-on fine-tuning code.</p>
+                        <div class="repo-tags"><span>LLM</span><span>Fine-Tuning</span><span>Scaling Laws</span></div>
+                    </div>
+                    <div class="repo-arrow"><i class="fas fa-arrow-right"></i></div>
+                </a>
+
+                <a href="https://github.com/Gaurav14cs17/LLMFineTune" target="_blank" rel="noopener noreferrer" class="repo-card">
+                    <div class="repo-icon"><i class="fas fa-desktop"></i></div>
+                    <div class="repo-content">
+                        <h3>LLMFineTune (Desktop App)</h3>
+                        <p>PyQt5 desktop GUI for fine-tuning, evaluating, and deploying LLMs using torchtune — no command-line required.</p>
+                        <div class="repo-tags"><span>torchtune</span><span>LoRA</span><span>GUI App</span></div>
+                    </div>
+                    <div class="repo-arrow"><i class="fas fa-arrow-right"></i></div>
+                </a>
+
+                <a href="https://github.com/Gaurav14cs17/LLMs_Model" target="_blank" rel="noopener noreferrer" class="repo-card">
+                    <div class="repo-icon"><i class="fas fa-robot"></i></div>
+                    <div class="repo-content">
+                        <h3>LLMs_Model</h3>
+                        <p>Comprehensive guides for working with Large Language Models — architectures, training, and deployment strategies.</p>
+                        <div class="repo-tags"><span>LLM Architectures</span><span>Transformers</span><span>Deployment</span></div>
+                    </div>
+                    <div class="repo-arrow"><i class="fas fa-arrow-right"></i></div>
+                </a>
+
+                <a href="https://github.com/Gaurav14cs17/AwesomeKVCach-and-LLMCompression" target="_blank" rel="noopener noreferrer" class="repo-card">
+                    <div class="repo-icon"><i class="fas fa-compress-arrows-alt"></i></div>
+                    <div class="repo-content">
+                        <h3>AwesomeKVCache-and-LLMCompression</h3>
+                        <p>Curated collection of 150+ research papers on KV Cache Management, KV Cache Compression, and LLM Compression for efficient inference.</p>
+                        <div class="repo-tags"><span>KV Cache</span><span>LLM Compression</span><span>Efficient Inference</span></div>
+                    </div>
+                    <div class="repo-arrow"><i class="fas fa-arrow-right"></i></div>
+                </a>
+
+                <a href="https://github.com/Gaurav14cs17/LoRA" target="_blank" rel="noopener noreferrer" class="repo-card">
+                    <div class="repo-icon"><i class="fas fa-sliders-h"></i></div>
+                    <div class="repo-content">
+                        <h3>LoRA</h3>
+                        <p>Implementation of LoRA: Low-Rank Adaptation of Large Language Models — parameter-efficient fine-tuning from scratch.</p>
+                        <div class="repo-tags"><span>LoRA</span><span>PEFT</span><span>Fine-Tuning</span></div>
+                    </div>
+                    <div class="repo-arrow"><i class="fas fa-arrow-right"></i></div>
+                </a>
+
+                <a href="https://github.com/Gaurav14cs17/Diffusion-Language-Model" target="_blank" rel="noopener noreferrer" class="repo-card">
+                    <div class="repo-icon"><i class="fas fa-wand-magic-sparkles"></i></div>
+                    <div class="repo-content">
+                        <h3>Diffusion-Language-Model</h3>
+                        <p>Diffusion-style denoising for text generation — iteratively refining noisy sequences into coherent text, an alternative to autoregressive LLMs.</p>
+                        <div class="repo-tags"><span>Diffusion LM</span><span>Text Generation</span><span>PyTorch</span></div>
+                    </div>
+                    <div class="repo-arrow"><i class="fas fa-arrow-right"></i></div>
+                </a>
+
+                <a href="https://github.com/Gaurav14cs17/REGLA-Refining-Gated-Linear-Attention" target="_blank" rel="noopener noreferrer" class="repo-card">
+                    <div class="repo-icon"><i class="fas fa-bolt"></i></div>
+                    <div class="repo-content">
+                        <h3>REGLA — Gated Linear Attention</h3>
+                        <p>Refining Gated Linear Attention — efficient alternative to softmax attention for scalable sequence modeling.</p>
+                        <div class="repo-tags"><span>Linear Attention</span><span>Efficient Transformers</span><span>Research</span></div>
+                    </div>
+                    <div class="repo-arrow"><i class="fas fa-arrow-right"></i></div>
+                </a>
+
+                <a href="https://github.com/Gaurav14cs17/Attention_mechanisms" target="_blank" rel="noopener noreferrer" class="repo-card">
+                    <div class="repo-icon"><i class="fas fa-layer-group"></i></div>
+                    <div class="repo-content">
+                        <h3>Attention_mechanisms</h3>
+                        <p>Three in-depth surveys covering efficient transformer architectures, attention variants, and optimization techniques.</p>
+                        <div class="repo-tags"><span>Attention</span><span>Transformers</span><span>Efficiency</span></div>
+                    </div>
+                    <div class="repo-arrow"><i class="fas fa-arrow-right"></i></div>
+                </a>
+
+                <a href="https://github.com/Gaurav14cs17/FlashDet" target="_blank" rel="noopener noreferrer" class="repo-card">
+                    <div class="repo-icon"><i class="fas fa-crosshairs"></i></div>
+                    <div class="repo-content">
+                        <h3>FlashDet</h3>
+                        <p>End-to-end object detection system with PyQt5 desktop app — LoRA/QLoRA fine-tuning, knowledge distillation, ONNX export, INT8 quantization. 0.49M–2.44M params, 100+ FPS.</p>
+                        <div class="repo-tags"><span>LoRA</span><span>Knowledge Distillation</span><span>Desktop App</span></div>
+                    </div>
+                    <div class="repo-arrow"><i class="fas fa-arrow-right"></i></div>
+                </a>
+
+                <a href="https://github.com/Gaurav14cs17/DataDrift" target="_blank" rel="noopener noreferrer" class="repo-card">
+                    <div class="repo-icon"><i class="fas fa-chart-line"></i></div>
+                    <div class="repo-content">
+                        <h3>DataDrift</h3>
+                        <p>Research paper on data drift in production ML — taxonomy (covariate/concept/label shift), mathematical formulations (KL, PSI, Wasserstein), monitoring architectures, and 200+ curated papers.</p>
+                        <div class="repo-tags"><span>Data Drift</span><span>MLOps</span><span>200+ Papers</span></div>
+                    </div>
+                    <div class="repo-arrow"><i class="fas fa-arrow-right"></i></div>
+                </a>
+
+                <a href="https://github.com/Gaurav14cs17/ml_system_design" target="_blank" rel="noopener noreferrer" class="repo-card">
+                    <div class="repo-icon"><i class="fas fa-brain"></i></div>
+                    <div class="repo-content">
+                        <h3>ml_system_design</h3>
+                        <p>Comprehensive guide to ML System Design — covering LLM serving, training pipelines, scaling, and real-world architecture patterns.</p>
+                        <div class="repo-tags"><span>System Design</span><span>LLM Serving</span><span>Architecture</span></div>
+                    </div>
+                    <div class="repo-arrow"><i class="fas fa-arrow-right"></i></div>
+                </a>
+
+                <a href="https://github.com/Gaurav14cs17/ImageObjectRemoval" target="_blank" rel="noopener noreferrer" class="repo-card">
+                    <div class="repo-icon"><i class="fas fa-eraser"></i></div>
+                    <div class="repo-content">
+                        <h3>ImageObjectRemoval</h3>
+                        <p>Remove objects from photos including shadows and reflections using generative inpainting — end-to-end diffusion-based restoration.</p>
+                        <div class="repo-tags"><span>Generative AI</span><span>Inpainting</span><span>Diffusion</span></div>
+                    </div>
+                    <div class="repo-arrow"><i class="fas fa-arrow-right"></i></div>
+                </a>
+
+                <a href="https://github.com/Gaurav14cs17/DSA" target="_blank" rel="noopener noreferrer" class="repo-card">
+                    <div class="repo-icon"><i class="fas fa-code"></i></div>
+                    <div class="repo-content">
+                        <h3>DSA</h3>
+                        <p>170+ stars — well-organized Data Structures and Algorithms covering fundamentals to advanced topics for coding interviews.</p>
+                        <div class="repo-tags"><span>DSA</span><span>170 Stars</span><span>Algorithms</span></div>
+                    </div>
+                    <div class="repo-arrow"><i class="fas fa-arrow-right"></i></div>
+                </a>
+            </div>
+            
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="https://github.com/Gaurav14cs17?tab=repositories" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                    <i class="fab fa-github"></i> View All 176 Repositories
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-social">
+            <a href="https://github.com/Gaurav14cs17" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/gaurav14cs17" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.kaggle.com/gouravkumar717" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fab fa-kaggle"></i></a>
+            <a href="https://leetcode.com/u/gou_rav/" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fas fa-code"></i></a>
+        </div>
+        <p class="footer-text">&copy; 2026 <a href="index.html">Gaurav Goswami</a></p>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+        });
+        document.querySelector('.mobile-toggle').addEventListener('click', () => {
+            document.getElementById('nav-menu').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
