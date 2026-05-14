@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css?v=4">
+    <link rel="stylesheet" href="style.css?v=5">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <style>
         .videos-grid {
@@ -137,7 +137,7 @@
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#repositories">Open Source</a></li>
-                <li><a href="#skills">Skills</a></li>
+                <li><a href="tutorials.html">Tutorials</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <div class="mobile-toggle"><i class="fas fa-bars"></i></div>
@@ -833,66 +833,6 @@
     </footer>
 
     <script>
-        // #region agent log
-        (function(){
-            var logPath='/home/ggoswami/Project/Gaurav/portfolio-master/.cursor/debug-f7b727.log';
-            var logs=[];
-            function dl(loc,msg,data,hid){
-                logs.push(JSON.stringify({sessionId:'f7b727',location:loc,message:msg,data:data,timestamp:Date.now(),runId:'run1',hypothesisId:hid}));
-            }
-            window.addEventListener('load',function(){
-                var vw=window.innerWidth;
-                var dw=document.documentElement.scrollWidth;
-                dl('index.html:load','viewport-vs-scroll',{viewportWidth:vw,scrollWidth:dw,hasOverflow:dw>vw},'H5');
-
-                var sels=[
-                    '.hero-content','.hero-stats','.exp-card','.exp-header',
-                    '.projects-grid','.project-card','.repos-grid','.repo-card',
-                    '.repo-content h3','.videos-grid','.video-card','.skills-grid',
-                    '.skill-category','.cp-grid','.cp-card','.contact-link',
-                    '.contact-wrapper','.education-card','.section-container'
-                ];
-                var overflows=[];
-                sels.forEach(function(s){
-                    var els=document.querySelectorAll(s);
-                    els.forEach(function(el,i){
-                        var r=el.getBoundingClientRect();
-                        if(r.width>vw+1||r.right>vw+1){
-                            overflows.push(s+'['+i+']: w='+Math.round(r.width)+' r='+Math.round(r.right));
-                            dl('index.html:OVERFLOW',s+'['+i+']',{w:Math.round(r.width),l:Math.round(r.left),r:Math.round(r.right),vw:vw},'H5');
-                        }
-                    });
-                });
-
-                var cssOk=false;
-                try{cssOk=CSS.supports('grid-template-columns','repeat(auto-fit, minmax(min(330px, 100%), 1fr))');}catch(e){}
-                dl('index.html:css','min()-in-minmax support',{supported:cssOk},'H1');
-
-                var divs=document.querySelectorAll('.stat-divider');
-                divs.forEach(function(d,i){var cs=getComputedStyle(d);dl('index.html:div','divider['+i+']',{display:cs.display},'H3');});
-
-                var panel=document.createElement('div');
-                panel.id='debug-panel';
-                panel.style.cssText='position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#000;color:#0f0;font:11px/1.4 monospace;padding:8px 12px;max-height:40vh;overflow:auto;border-top:2px solid #0f0;';
-                var h='<b>DEBUG f7b727</b> | VP:'+vw+'px | Scroll:'+dw+'px | Overflow:'+(dw>vw?'YES':'NO')+'<br>';
-                h+='CSS min() support: '+(cssOk?'YES':'NO')+'<br>';
-                if(overflows.length>0){
-                    h+='<span style="color:#f00"><b>OVERFLOWING ELEMENTS ('+overflows.length+'):</b></span><br>';
-                    overflows.forEach(function(o){h+='  '+o+'<br>';});
-                }else{
-                    h+='<span style="color:#0f0">No element overflow detected</span><br>';
-                }
-                h+='Dividers: ';
-                divs.forEach(function(d,i){h+=getComputedStyle(d).display+' ';});
-                panel.innerHTML=h;
-                document.body.appendChild(panel);
-
-                try{
-                    fetch('http://127.0.0.1:7554/ingest/e6eb76e5-3719-4dc8-a6a2-004d80662cb7',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'f7b727'},body:JSON.stringify({sessionId:'f7b727',location:'index.html:batch',message:'all-logs',data:{logs:logs,overflowCount:overflows.length,viewport:vw,scrollWidth:dw,cssMinSupport:cssOk},timestamp:Date.now(),runId:'run1',hypothesisId:'ALL'})}).catch(function(){});
-                }catch(e){}
-            });
-        })();
-        // #endregion
         window.addEventListener('scroll', () => {
             document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
         });
