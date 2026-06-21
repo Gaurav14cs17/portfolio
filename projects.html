@@ -2,14 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0e1117">
     <title>Projects & Open Source | Gaurav Goswami</title>
     <meta name="description" content="Featured AI/ML projects, LLM infrastructure, and open-source repositories by Gaurav Goswami">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css?v=6">
+    <link rel="stylesheet" href="style.css?v=9">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <style>
         .page-hero {
@@ -21,8 +22,8 @@
             position: absolute;
             inset: 0;
             background:
-                radial-gradient(ellipse at 30% 40%, rgba(99, 102, 241, 0.08) 0%, transparent 60%),
-                radial-gradient(ellipse at 70% 60%, rgba(139, 92, 246, 0.05) 0%, transparent 60%);
+                radial-gradient(ellipse at 30% 40%, rgba(212,164,78,0.06) 0%, transparent 60%),
+                radial-gradient(ellipse at 70% 60%, rgba(88,166,255,0.03) 0%, transparent 60%);
         }
         .page-hero-content {
             position: relative;
@@ -55,15 +56,23 @@
             margin-bottom: 1.5rem;
         }
         .back-link:hover {
-            color: var(--primary-light);
+            color: var(--accent);
         }
         @media (max-width: 768px) {
-            .page-hero { padding: 6rem 1.25rem 2.5rem; }
-            .page-hero h1 { font-size: 1.75rem; }
-            .page-hero p { font-size: 0.9rem; }
+            .page-hero { padding: 5rem 1rem 2rem; }
+            .page-hero h1 { font-size: 1.5rem; }
+            .page-hero p { font-size: 0.85rem; }
+            .back-link { font-size: 0.8rem; margin-bottom: 1rem; min-height: 44px; display: inline-flex; align-items: center; }
         }
         @media (max-width: 480px) {
-            .page-hero { padding: 5rem 0.875rem 2rem; }
+            .page-hero { padding: 4.5rem 0.75rem 1.5rem; }
+            .page-hero h1 { font-size: 1.3rem; }
+            .page-hero p { font-size: 0.8rem; }
+            .section-title img { width: 28px !important; height: 28px !important; }
+        }
+        @media (max-width: 360px) {
+            .page-hero { padding: 4rem 0.5rem 1.25rem; }
+            .page-hero h1 { font-size: 1.15rem; }
         }
     </style>
 </head>
@@ -72,11 +81,11 @@
         <div class="nav-container">
             <a href="index.html" class="logo">GG</a>
             <ul class="nav-links" id="nav-menu">
-                <li><a href="index.html">Resume</a></li>
-                <li><a href="projects.html" style="color: var(--primary-light);">Projects</a></li>
+                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="projects.html" style="color: var(--accent);">Projects</a></li>
                 <li><a href="videos.html">Videos</a></li>
                 <li><a href="tutorials.html">Tutorials</a></li>
-                <li><a href="https://14cs17.netlify.app/" target="_blank" rel="noopener noreferrer">ML Textbook <i class="fas fa-external-link-alt" style="font-size: 0.6rem; vertical-align: super;"></i></a></li>
+                <li><a href="https://14cs17.netlify.app/" target="_blank" rel="noopener noreferrer">ML Textbook</a></li>
                 <li><a href="index.html#contact">Contact</a></li>
             </ul>
             <div class="mobile-toggle"><i class="fas fa-bars"></i></div>
@@ -86,7 +95,7 @@
     <section class="page-hero">
         <div class="hero-bg"></div>
         <div class="page-hero-content">
-            <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Resume</a>
+            <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Dashboard</a>
             <h1>Projects & Open Source</h1>
             <p>LLM infrastructure, generative AI, production ML systems, and 176+ open-source repositories on GitHub.</p>
         </div>
@@ -100,32 +109,11 @@
                 <p class="section-desc">LLM infrastructure, generative AI, and production ML systems</p>
             </div>
             
-            <div style="margin-bottom: 2rem;">
-                <a href="https://14cs17.netlify.app/" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit; display: block;">
-                    <div style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(139, 92, 246, 0.12) 50%, rgba(236, 72, 153, 0.08) 100%); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: var(--radius-xl); padding: 2.5rem 2rem; transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;" onmouseover="this.style.borderColor='rgba(99,102,241,0.4)'; this.style.boxShadow='0 16px 48px rgba(99,102,241,0.15)'; this.style.transform='translateY(-4px)';" onmouseout="this.style.borderColor='rgba(99,102,241,0.2)'; this.style.boxShadow='none'; this.style.transform='translateY(0)';">
-                        <div style="display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;">
-                            <div style="width: 72px; height: 72px; background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; font-size: 1.75rem; color: white; font-weight: 800; flex-shrink: 0;">ML</div>
-                            <div style="flex: 1; min-width: 220px;">
-                                <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.4rem;">
-                                    <span style="padding: 0.15rem 0.5rem; background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: var(--radius-full); font-size: 0.6rem; font-weight: 600; color: #10b981; text-transform: uppercase;">Live</span>
-                                    <span style="padding: 0.15rem 0.5rem; background: rgba(245, 158, 11, 0.12); border: 1px solid rgba(245, 158, 11, 0.25); border-radius: var(--radius-full); font-size: 0.6rem; font-weight: 600; color: #f59e0b; text-transform: uppercase;">12 Volumes</span>
-                                </div>
-                                <h3 style="font-size: 1.3rem; font-weight: 700; color: var(--white); margin-bottom: 0.4rem;">ML for Everyone — Mathematics Behind Modern AI</h3>
-                                <p style="color: var(--gray); font-size: 0.85rem; line-height: 1.6;">A complete, rigorous curriculum: linear algebra to LLMs, diffusion models, flow matching, quantization, distillation. Full derivations, proofs, and deep intuition.</p>
-                            </div>
-                            <div style="flex-shrink: 0; color: var(--primary-light); font-weight: 600; font-size: 0.85rem; display: flex; align-items: center; gap: 0.4rem;">
-                                Visit <i class="fas fa-external-link-alt" style="font-size: 0.7rem;"></i>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
             <div class="projects-grid">
                 <div class="project-card">
                     <div class="project-icon-placeholder">
-                        <div class="icon-bg" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
-                            <i class="fas fa-server"></i>
+                        <div class="icon-bg" style="background: linear-gradient(135deg, #0d1b2a 0%, #1b2838 50%, #162447 100%);">
+                            <i class="fas fa-server" style="color: #58a6ff;"></i>
                         </div>
                     </div>
                     <div class="project-info">
@@ -138,8 +126,8 @@
                 
                 <div class="project-card">
                     <div class="project-icon-placeholder">
-                        <div class="icon-bg" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
-                            <i class="fas fa-brain"></i>
+                        <div class="icon-bg" style="background: linear-gradient(135deg, #1a0e2e 0%, #2d1b4e 50%, #1f1338 100%);">
+                            <i class="fas fa-brain" style="color: #bc8cff;"></i>
                         </div>
                     </div>
                     <div class="project-info">
@@ -152,8 +140,8 @@
                 
                 <div class="project-card">
                     <div class="project-icon-placeholder">
-                        <div class="icon-bg" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
-                            <i class="fas fa-wand-magic-sparkles"></i>
+                        <div class="icon-bg" style="background: linear-gradient(135deg, #1f1a0e 0%, #2e2510 50%, #3a2c14 100%);">
+                            <i class="fas fa-wand-magic-sparkles" style="color: #d4a44e;"></i>
                         </div>
                     </div>
                     <div class="project-info">
@@ -166,8 +154,8 @@
 
                 <div class="project-card">
                     <div class="project-icon-placeholder">
-                        <div class="icon-bg" style="background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);">
-                            <i class="fas fa-font"></i>
+                        <div class="icon-bg" style="background: linear-gradient(135deg, #0e1a1a 0%, #0f2e2e 50%, #0d2828 100%);">
+                            <i class="fas fa-font" style="color: #79c0ff;"></i>
                         </div>
                     </div>
                     <div class="project-info">
@@ -180,8 +168,8 @@
                 
                 <div class="project-card">
                     <div class="project-icon-placeholder">
-                        <div class="icon-bg" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
-                            <i class="fas fa-compress-arrows-alt"></i>
+                        <div class="icon-bg" style="background: linear-gradient(135deg, #1a0e0e 0%, #2e1515 50%, #381818 100%);">
+                            <i class="fas fa-compress-arrows-alt" style="color: #f78166;"></i>
                         </div>
                     </div>
                     <div class="project-info">
@@ -194,22 +182,162 @@
 
                 <div class="project-card">
                     <div class="project-icon-placeholder">
-                        <div class="icon-bg" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
-                            <i class="fas fa-crosshairs"></i>
+                        <div class="icon-bg" style="background: linear-gradient(135deg, #0e1a0e 0%, #102e15 50%, #0d280d 100%);">
+                            <i class="fas fa-crosshairs" style="color: #56d364;"></i>
                         </div>
                     </div>
                     <div class="project-info">
                         <h3>FlashDet — End-to-End Detection System</h3>
                         <p>Complete desktop app with LoRA/QLoRA fine-tuning, knowledge distillation, ONNX export, and INT8 quantization — train to deploy without code.</p>
-                        <div class="project-tech"><span>LoRA</span><span>KD</span><span>Quantization</span><span>PyQt5</span></div>
-                        <div class="project-links"><a href="https://github.com/Gaurav14cs17/FlashDet" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a></div>
+                        <div class="project-tech"><span>LoRA</span><span>KD</span><span>Quantization</span><span>PyQt5</span><span>PyPI</span></div>
+                        <div class="project-links"><a href="https://github.com/FlashVision/FlashDet" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a><a href="https://pypi.org/project/flashdet/" target="_blank" rel="noopener noreferrer"><i class="fab fa-python"></i></a></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="repositories" style="background: var(--darker);">
+    <section id="flashvision" style="background: var(--darker);">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">Organization</span>
+                <h2 class="section-title"><img src="https://github.com/FlashVision.png" alt="FlashVision" style="width: 36px; height: 36px; border-radius: 8px; vertical-align: middle; margin-right: 0.5rem; border: 1px solid var(--border);"> FlashVision</h2>
+                <p class="section-desc">Ultra-lightweight vision AI for edge devices — pip-installable, MIT licensed, LoRA fine-tuning built-in</p>
+            </div>
+
+            <div style="display: flex; align-items: center; justify-content: center; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 2.5rem;">
+                <a href="https://github.com/FlashVision" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; background: rgba(255,255,255,0.04); border: 1px solid var(--border); border-radius: var(--radius-full); color: var(--text-secondary); text-decoration: none; font-size: 0.8rem; font-weight: 500; transition: all 0.2s;" onmouseover="this.style.borderColor='rgba(212,164,78,0.22)'; this.style.color='#d4a44e';" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)'; this.style.color='#8b949e';"><img src="https://github.com/FlashVision.png" alt="FV" style="width: 18px; height: 18px; border-radius: 4px;"> GitHub Org</a>
+                <a href="https://pypi.org/project/flashdet/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; background: var(--accent-dim); border: 1px solid var(--accent-border); border-radius: var(--radius-full); color: var(--accent); text-decoration: none; font-size: 0.8rem; font-weight: 500; transition: all 0.2s;" onmouseover="this.style.borderColor='rgba(212,164,78,0.35)';" onmouseout="this.style.borderColor='rgba(212,164,78,0.22)';"><i class="fab fa-python"></i> PyPI: flashdet</a>
+                <a href="https://flashvision.github.io/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; background: rgba(255,255,255,0.04); border: 1px solid var(--border); border-radius: var(--radius-full); color: var(--text-secondary); text-decoration: none; font-size: 0.8rem; font-weight: 500; transition: all 0.2s;" onmouseover="this.style.borderColor='rgba(212,164,78,0.22)'; this.style.color='#d4a44e';" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)'; this.style.color='#8b949e';"><i class="fas fa-globe"></i> Website</a>
+                <span style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.04); border: 1px solid var(--border); border-radius: var(--radius-full); color: var(--text-muted); font-size: 0.8rem; font-weight: 500;">22+ Repos &middot; MIT License</span>
+            </div>
+
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-icon-placeholder">
+                        <div class="icon-bg" style="background: linear-gradient(135deg, #0e1a0e 0%, #102e15 50%, #0d280d 100%);">
+                            <i class="fas fa-crosshairs" style="color: #56d364;"></i>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>FlashDet — Object Detection</h3>
+                        <p>Ultra-lightweight real-time object detection with tracking & analytics. 0.49M–2.44M params, 100+ FPS. Available on PyPI.</p>
+                        <div class="project-tech"><span>0.49M–2.44M</span><span>100+ FPS</span><span>LoRA</span><span>KD</span><span>PyPI</span></div>
+                        <div class="project-links">
+                            <a href="https://github.com/FlashVision/FlashDet" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+                            <a href="https://pypi.org/project/flashdet/" target="_blank" rel="noopener noreferrer"><i class="fab fa-python"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon-placeholder">
+                        <div class="icon-bg" style="background: linear-gradient(135deg, #0d1b2a 0%, #1b2838 50%, #162447 100%);">
+                            <i class="fas fa-shapes" style="color: #58a6ff;"></i>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>FlashSeg — Segmentation</h3>
+                        <p>Semantic segmentation, background removal, and lane detection. 0.3M–3.2M params, 80+ FPS on edge GPUs.</p>
+                        <div class="project-tech"><span>0.3M–3.2M</span><span>80+ FPS</span><span>LoRA</span><span>KD</span><span>PyPI</span></div>
+                        <div class="project-links"><a href="https://github.com/FlashVision/FlashSeg" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a></div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon-placeholder">
+                        <div class="icon-bg" style="background: linear-gradient(135deg, #1f1a0e 0%, #2e2510 50%, #3a2c14 100%);">
+                            <i class="fas fa-tags" style="color: #d4a44e;"></i>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>FlashCls — Classification</h3>
+                        <p>Image classification with multi-backbone support. 0.35M–2.8M params, 200+ FPS with ShuffleNetV2.</p>
+                        <div class="project-tech"><span>0.35M–2.8M</span><span>200+ FPS</span><span>Multi-Backbone</span><span>PyPI</span></div>
+                        <div class="project-links"><a href="https://github.com/FlashVision/FlashCls" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a></div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon-placeholder">
+                        <div class="icon-bg" style="background: linear-gradient(135deg, #1a0e2e 0%, #2d1b4e 50%, #1f1338 100%);">
+                            <i class="fas fa-route" style="color: #bc8cff;"></i>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>FlashTrack — Multi-Object Tracking</h3>
+                        <p>Multi-object tracking with ReID encoders. 0.5M–2.0M params, 90+ FPS real-time tracking.</p>
+                        <div class="project-tech"><span>0.5M–2.0M</span><span>90+ FPS</span><span>ReID</span><span>LoRA</span></div>
+                        <div class="project-links"><a href="https://github.com/FlashVision/FlashTrack" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a></div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon-placeholder">
+                        <div class="icon-bg" style="background: linear-gradient(135deg, #0e1a1a 0%, #0f2e2e 50%, #0d2828 100%);">
+                            <i class="fas fa-font" style="color: #79c0ff;"></i>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>FlashOCR — Text Recognition</h3>
+                        <p>CTC + Attention decoder OCR. 0.4M–2.5M params, 120+ FPS text recognition for edge devices.</p>
+                        <div class="project-tech"><span>0.4M–2.5M</span><span>120+ FPS</span><span>CTC</span><span>Attention</span></div>
+                        <div class="project-links"><a href="https://github.com/FlashVision/FlashOCR" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a></div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon-placeholder">
+                        <div class="icon-bg" style="background: linear-gradient(135deg, #1a0e0e 0%, #2e1515 50%, #381818 100%);">
+                            <i class="fas fa-robot" style="color: #f78166;"></i>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>FlashLLM — LLM Fine-Tuning</h3>
+                        <p>Lightweight LLM inference and fine-tuning — LoRA, QLoRA, SFT, DPO, quantization for LLaMA, Mistral, Phi, Gemma, Qwen.</p>
+                        <div class="project-tech"><span>LoRA</span><span>QLoRA</span><span>SFT</span><span>DPO</span><span>Quantization</span></div>
+                        <div class="project-links"><a href="https://github.com/FlashVision/FlashLLM" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a></div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon-placeholder">
+                        <div class="icon-bg" style="background: linear-gradient(135deg, #0d1b2a 0%, #1b2838 50%, #162447 100%);">
+                            <i class="fas fa-cube" style="color: #58a6ff;"></i>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Flash3D — 3D Vision</h3>
+                        <p>Gaussian Splatting, NeRF, depth estimation, 3D reconstruction, and point cloud processing.</p>
+                        <div class="project-tech"><span>Gaussian Splatting</span><span>NeRF</span><span>Depth</span><span>3D Recon</span></div>
+                        <div class="project-links"><a href="https://github.com/FlashVision/Flash3D" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a></div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon-placeholder">
+                        <div class="icon-bg" style="background: linear-gradient(135deg, #0e1a1a 0%, #0f2e2e 50%, #0d2828 100%);">
+                            <i class="fas fa-gamepad" style="color: #79c0ff;"></i>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>VisionRL — RL for Computer Vision</h3>
+                        <p>Reinforcement learning for image enhancement, segmentation, object detection, and generation with RL.</p>
+                        <div class="project-tech"><span>RL</span><span>Enhancement</span><span>Detection</span><span>Generation</span></div>
+                        <div class="project-links"><a href="https://github.com/FlashVision/VisionRL" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a></div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 2.5rem;">
+                <a href="https://github.com/FlashVision" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                    <i class="fab fa-github"></i> View All FlashVision Repos
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="repositories" style="background: var(--dark);">
         <div class="section-container">
             <div class="section-header">
                 <span class="section-tag">Open Source</span>
@@ -367,12 +495,21 @@
         <p class="footer-text">&copy; 2026 <a href="index.html">Gaurav Goswami</a></p>
     </footer>
 
+    <div class="nav-overlay" id="nav-overlay"></div>
     <script>
+        const navMenu = document.getElementById('nav-menu');
+        const navOverlay = document.getElementById('nav-overlay');
+        const mobToggle = document.querySelector('.mobile-toggle');
+
+        function closeNav() { navMenu.classList.remove('active'); navOverlay.classList.remove('active'); document.body.style.overflow = ''; }
+        function openNav() { navMenu.classList.add('active'); navOverlay.classList.add('active'); document.body.style.overflow = 'hidden'; }
+
+        mobToggle.addEventListener('click', () => { navMenu.classList.contains('active') ? closeNav() : openNav(); });
+        navOverlay.addEventListener('click', closeNav);
+        document.querySelectorAll('#nav-menu a').forEach(a => a.addEventListener('click', closeNav));
+
         window.addEventListener('scroll', () => {
             document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
-        });
-        document.querySelector('.mobile-toggle').addEventListener('click', () => {
-            document.getElementById('nav-menu').classList.toggle('active');
         });
     </script>
 </body>
