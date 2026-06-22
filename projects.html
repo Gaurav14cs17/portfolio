@@ -79,6 +79,7 @@
 <body>
     <nav id="navbar">
         <div class="nav-container">
+            <div class="mobile-toggle"><i class="fas fa-bars"></i></div>
             <a href="index.html" class="logo">GG</a>
             <ul class="nav-links" id="nav-menu">
                 <li><a href="index.html">Dashboard</a></li>
@@ -88,7 +89,6 @@
                 <li><a href="https://14cs17.netlify.app/" target="_blank" rel="noopener noreferrer">ML Textbook</a></li>
                 <li><a href="index.html#contact">Contact</a></li>
             </ul>
-            <div class="mobile-toggle"><i class="fas fa-bars"></i></div>
         </div>
     </nav>
 
@@ -207,9 +207,17 @@
 
             <div style="display: flex; align-items: center; justify-content: center; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 2.5rem;">
                 <a href="https://github.com/FlashVision" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; background: rgba(255,255,255,0.04); border: 1px solid var(--border); border-radius: var(--radius-full); color: var(--text-secondary); text-decoration: none; font-size: 0.8rem; font-weight: 500; transition: all 0.2s;" onmouseover="this.style.borderColor='rgba(212,164,78,0.22)'; this.style.color='#d4a44e';" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)'; this.style.color='#8b949e';"><img src="https://github.com/FlashVision.png" alt="FV" style="width: 18px; height: 18px; border-radius: 4px;"> GitHub Org</a>
-                <a href="https://pypi.org/project/flashdet/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; background: var(--accent-dim); border: 1px solid var(--accent-border); border-radius: var(--radius-full); color: var(--accent); text-decoration: none; font-size: 0.8rem; font-weight: 500; transition: all 0.2s;" onmouseover="this.style.borderColor='rgba(212,164,78,0.35)';" onmouseout="this.style.borderColor='rgba(212,164,78,0.22)';"><i class="fab fa-python"></i> PyPI: flashdet</a>
                 <a href="https://flashvision.github.io/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; background: rgba(255,255,255,0.04); border: 1px solid var(--border); border-radius: var(--radius-full); color: var(--text-secondary); text-decoration: none; font-size: 0.8rem; font-weight: 500; transition: all 0.2s;" onmouseover="this.style.borderColor='rgba(212,164,78,0.22)'; this.style.color='#d4a44e';" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)'; this.style.color='#8b949e';"><i class="fas fa-globe"></i> Website</a>
                 <span style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.04); border: 1px solid var(--border); border-radius: var(--radius-full); color: var(--text-muted); font-size: 0.8rem; font-weight: 500;">22+ Repos &middot; MIT License</span>
+            </div>
+
+            <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 2.5rem;">
+                <a href="https://pypi.org/project/flashdet/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.35rem 0.75rem; background: var(--accent-dim); border: 1px solid var(--accent-border); border-radius: var(--radius-full); color: var(--accent); text-decoration: none; font-size: 0.72rem; font-weight: 500; transition: all 0.2s;"><i class="fab fa-python"></i> flashdet</a>
+                <a href="https://pypi.org/project/flashseg/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.35rem 0.75rem; background: rgba(88,166,255,0.08); border: 1px solid rgba(88,166,255,0.2); border-radius: var(--radius-full); color: #58a6ff; text-decoration: none; font-size: 0.72rem; font-weight: 500; transition: all 0.2s;"><i class="fab fa-python"></i> flashseg</a>
+                <a href="https://pypi.org/project/flashcls/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.35rem 0.75rem; background: rgba(86,211,100,0.08); border: 1px solid rgba(86,211,100,0.2); border-radius: var(--radius-full); color: #56d364; text-decoration: none; font-size: 0.72rem; font-weight: 500; transition: all 0.2s;"><i class="fab fa-python"></i> flashcls</a>
+                <a href="https://pypi.org/project/flashtrack/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.35rem 0.75rem; background: rgba(188,140,255,0.08); border: 1px solid rgba(188,140,255,0.2); border-radius: var(--radius-full); color: #bc8cff; text-decoration: none; font-size: 0.72rem; font-weight: 500; transition: all 0.2s;"><i class="fab fa-python"></i> flashtrack</a>
+                <a href="https://pypi.org/project/flashocr/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.35rem 0.75rem; background: rgba(121,192,255,0.08); border: 1px solid rgba(121,192,255,0.2); border-radius: var(--radius-full); color: #79c0ff; text-decoration: none; font-size: 0.72rem; font-weight: 500; transition: all 0.2s;"><i class="fab fa-python"></i> flashocr</a>
+                <a href="https://pypi.org/project/flashdownup/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.35rem 0.75rem; background: rgba(247,129,102,0.08); border: 1px solid rgba(247,129,102,0.2); border-radius: var(--radius-full); color: #f78166; text-decoration: none; font-size: 0.72rem; font-weight: 500; transition: all 0.2s;"><i class="fab fa-python"></i> flashdownup</a>
             </div>
 
             <div class="projects-grid">
@@ -240,7 +248,10 @@
                         <h3>FlashSeg — Segmentation</h3>
                         <p>Semantic segmentation, background removal, and lane detection. 0.3M–3.2M params, 80+ FPS on edge GPUs.</p>
                         <div class="project-tech"><span>0.3M–3.2M</span><span>80+ FPS</span><span>LoRA</span><span>KD</span><span>PyPI</span></div>
-                        <div class="project-links"><a href="https://github.com/FlashVision/FlashSeg" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a></div>
+                        <div class="project-links">
+                            <a href="https://github.com/FlashVision/FlashSeg" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+                            <a href="https://pypi.org/project/flashseg/" target="_blank" rel="noopener noreferrer"><i class="fab fa-python"></i></a>
+                        </div>
                     </div>
                 </div>
 
@@ -254,7 +265,10 @@
                         <h3>FlashCls — Classification</h3>
                         <p>Image classification with multi-backbone support. 0.35M–2.8M params, 200+ FPS with ShuffleNetV2.</p>
                         <div class="project-tech"><span>0.35M–2.8M</span><span>200+ FPS</span><span>Multi-Backbone</span><span>PyPI</span></div>
-                        <div class="project-links"><a href="https://github.com/FlashVision/FlashCls" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a></div>
+                        <div class="project-links">
+                            <a href="https://github.com/FlashVision/FlashCls" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+                            <a href="https://pypi.org/project/flashcls/" target="_blank" rel="noopener noreferrer"><i class="fab fa-python"></i></a>
+                        </div>
                     </div>
                 </div>
 
@@ -267,8 +281,11 @@
                     <div class="project-info">
                         <h3>FlashTrack — Multi-Object Tracking</h3>
                         <p>Multi-object tracking with ReID encoders. 0.5M–2.0M params, 90+ FPS real-time tracking.</p>
-                        <div class="project-tech"><span>0.5M–2.0M</span><span>90+ FPS</span><span>ReID</span><span>LoRA</span></div>
-                        <div class="project-links"><a href="https://github.com/FlashVision/FlashTrack" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a></div>
+                        <div class="project-tech"><span>0.5M–2.0M</span><span>90+ FPS</span><span>ReID</span><span>LoRA</span><span>PyPI</span></div>
+                        <div class="project-links">
+                            <a href="https://github.com/FlashVision/FlashTrack" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+                            <a href="https://pypi.org/project/flashtrack/" target="_blank" rel="noopener noreferrer"><i class="fab fa-python"></i></a>
+                        </div>
                     </div>
                 </div>
 
@@ -281,8 +298,28 @@
                     <div class="project-info">
                         <h3>FlashOCR — Text Recognition</h3>
                         <p>CTC + Attention decoder OCR. 0.4M–2.5M params, 120+ FPS text recognition for edge devices.</p>
-                        <div class="project-tech"><span>0.4M–2.5M</span><span>120+ FPS</span><span>CTC</span><span>Attention</span></div>
-                        <div class="project-links"><a href="https://github.com/FlashVision/FlashOCR" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a></div>
+                        <div class="project-tech"><span>0.4M–2.5M</span><span>120+ FPS</span><span>CTC</span><span>Attention</span><span>PyPI</span></div>
+                        <div class="project-links">
+                            <a href="https://github.com/FlashVision/FlashOCR" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+                            <a href="https://pypi.org/project/flashocr/" target="_blank" rel="noopener noreferrer"><i class="fab fa-python"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon-placeholder">
+                        <div class="icon-bg" style="background: linear-gradient(135deg, #0e1717 0%, #0d2a28 50%, #0b2220 100%);">
+                            <i class="fas fa-arrows-alt-v" style="color: #56d364;"></i>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>FlashDownUP — Image Resampling</h3>
+                        <p>Lossless & lossy image resampling operators — Space-to-Depth, DWT-Haar, Depth-to-Space for efficient downsampling/upsampling.</p>
+                        <div class="project-tech"><span>S2D</span><span>DWT-Haar</span><span>D2S</span><span>Lossless</span><span>PyPI</span></div>
+                        <div class="project-links">
+                            <a href="https://github.com/FlashVision/FlashDownUP" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+                            <a href="https://pypi.org/project/flashdownup/" target="_blank" rel="noopener noreferrer"><i class="fab fa-python"></i></a>
+                        </div>
                     </div>
                 </div>
 
@@ -325,6 +362,62 @@
                         <p>Reinforcement learning for image enhancement, segmentation, object detection, and generation with RL.</p>
                         <div class="project-tech"><span>RL</span><span>Enhancement</span><span>Detection</span><span>Generation</span></div>
                         <div class="project-links"><a href="https://github.com/FlashVision/VisionRL" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a></div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon-placeholder">
+                        <div class="icon-bg" style="background: linear-gradient(135deg, #1a0f1a 0%, #2e1a2e 50%, #381f38 100%);">
+                            <i class="fas fa-video" style="color: #bc8cff;"></i>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>FlashVideo — Video AI</h3>
+                        <p>Video generation, understanding, action recognition, and world models for video intelligence.</p>
+                        <div class="project-tech"><span>Video Gen</span><span>Action Recog</span><span>World Models</span></div>
+                        <div class="project-links"><a href="https://github.com/FlashVision/FlashVideo" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a></div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon-placeholder">
+                        <div class="icon-bg" style="background: linear-gradient(135deg, #1a1a0e 0%, #2e2e10 50%, #38380d 100%);">
+                            <i class="fas fa-brain" style="color: #d4a44e;"></i>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>FlashAgent — Agentic AI</h3>
+                        <p>Multi-agent orchestration, tool-calling, memory, ReAct, and planning for agentic AI systems.</p>
+                        <div class="project-tech"><span>Multi-Agent</span><span>Tool-Calling</span><span>ReAct</span><span>Planning</span></div>
+                        <div class="project-links"><a href="https://github.com/FlashVision/FlashAgent" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a></div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon-placeholder">
+                        <div class="icon-bg" style="background: linear-gradient(135deg, #0e1717 0%, #102e2e 50%, #0d2828 100%);">
+                            <i class="fas fa-sliders-h" style="color: #56d364;"></i>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>FlashOptim — Model Optimization</h3>
+                        <p>Model optimization toolkit — quantization, pruning, distillation, and NAS for FlashVision models.</p>
+                        <div class="project-tech"><span>Quantization</span><span>Pruning</span><span>Distillation</span><span>NAS</span></div>
+                        <div class="project-links"><a href="https://github.com/FlashVision/FlashOptim" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a></div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon-placeholder">
+                        <div class="icon-bg" style="background: linear-gradient(135deg, #1a0e1a 0%, #2e1b2e 50%, #381f38 100%);">
+                            <i class="fas fa-layer-group" style="color: #f78166;"></i>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>FlashFusion — Multi-Model Fusion</h3>
+                        <p>Ensemble, cascade, and fuse detection, classification, segmentation, and OCR models for production pipelines.</p>
+                        <div class="project-tech"><span>Ensemble</span><span>Cascade</span><span>Multi-Model</span><span>Pipeline</span></div>
+                        <div class="project-links"><a href="https://github.com/FlashVision/FlashFusion" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a></div>
                     </div>
                 </div>
             </div>
